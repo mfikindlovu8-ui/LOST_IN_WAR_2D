@@ -15,6 +15,21 @@ public class HealthSystem : MonoBehaviour
     {
         health = maxHealth;
     }
+
+    void Update ()
+    {
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            // Damage(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+
+        { 
+        // Heal(1);
+        }
+    }
     public void TakeDamage(int amount)
 
     {
