@@ -252,8 +252,8 @@ Transform:
   m_GameObject: {fileID: 173856269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.27, y: -3.79, z: 0}
-  m_LocalScale: {x: 5.88, y: 42.81012, z: 12.378948}
+  m_LocalPosition: {x: 2.21, y: -3.79, z: 0}
+  m_LocalScale: {x: 4.05, y: 29.48656, z: 8.526317}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -284,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 184508788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: -0.57, z: 0}
+  m_LocalPosition: {x: 1.24, y: -0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33397e32ea5a66e4882f520547e94ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  moveSpeed: 1
+  moveSpeed: 5
   attackPoint: {fileID: 0}
   radius: 0
   enemies:
@@ -334,8 +334,8 @@ Transform:
   m_GameObject: {fileID: 198556985}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.67, y: -3.77, z: 0}
-  m_LocalScale: {x: 5.77, y: 22.613504, z: 6.9939394}
+  m_LocalPosition: {x: -3, y: -3.77, z: 0}
+  m_LocalScale: {x: 4.08, y: 15.990138, z: 4.9454546}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -459,7 +459,6 @@ GameObject:
   - component: {fileID: 418367861}
   - component: {fileID: 418367862}
   - component: {fileID: 418367863}
-  - component: {fileID: 418367865}
   - component: {fileID: 418367864}
   m_Layer: 0
   m_Name: Player
@@ -673,18 +672,6 @@ MonoBehaviour:
   playerSr: {fileID: 418367859}
   playerMovement: {fileID: 418367857}
 --- !u!114 &418367864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418367856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 702fc94bf48582544a428beb73b6df25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AttackArea
---- !u!114 &418367865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1944,7 +1931,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!114 &1558726574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1988,7 +1975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   health: 3
-  currentHealth: 3
+  currentHealth: 0
 --- !u!1 &1564661035
 GameObject:
   m_ObjectHideFlags: 0
