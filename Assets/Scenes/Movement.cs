@@ -52,7 +52,7 @@ public class Movement : MonoBehaviour
             foreach  (Collider2D enemyGameobject in enemy)
         {
             Debug.Log("Hit enemy");
-            enemyGameobject.GetComponent<enemyHealth>().health -= damage;
+            enemyGameobject.GetComponent<EnemyHealth>().health -= damage;
         }
 
         

@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Attack();
+            //Attack();
         }
 
         if (attacking)

@@ -28,6 +28,6 @@ void Start()
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        //healthBar.SetHealth(currentHealth, maxHealth);
     }
 }

@@ -11,12 +11,12 @@ public class HealthSystem : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+     void Start()
     {
-        health = maxHealth;
+        //health = maxHealth;
     }
 
-    void Update ()
+    void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.D))
@@ -26,8 +26,8 @@ public class HealthSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H))
 
-        { 
-        // Heal(1);
+        {
+            // Heal(1);
         }
     }
     public void TakeDamage(int amount)
@@ -41,5 +41,4 @@ public class HealthSystem : MonoBehaviour
         }
     }
 }
-        
-  
+
