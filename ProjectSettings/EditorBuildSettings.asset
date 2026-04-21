@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 884cf7be4ed93f146bad84406e801ea7
+  - enabled: 1
     path: Assets/Scenes/Environment.unity
     guid: 13650f5ad9353d14a8264d5a89ed464c
   - enabled: 0
@@ -17,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pause Menu.unity
     guid: 2d582eed99e24144eb97812809295035
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 406437a956efcca4bae09049d0e84bf8
+  - enabled: 1
+    path: Assets/Scenes/Well Done Scene.unity
+    guid: dc5c85db248705148a7c81de41412461
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
