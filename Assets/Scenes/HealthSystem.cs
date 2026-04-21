@@ -10,54 +10,33 @@ public class HealthSystem : MonoBehaviour
     public Movement playerMovement;
 
 
-    // HEAD
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = maxHealth;
     }
 
-    void Update()
-    {
-
-        //  Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-            health = maxHealth;
-        }
-
-        void Update()
-        {
-
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                // Damage(1);
-            }
-
-            if (Input.GetKeyDown(KeyCode.H))
-
-            // <<<<<<< HEAD
-            {
-                // Heal(1);
-            }
-        }
-    }
-
+    
     public void TakeDamage(int amount)
 
     {
         health -= amount;
+        health = Mathf.Clamp(health, 0, maxHealth);
         if (health <= 0)
         {
             playerSr.enabled = false;
             playerMovement.enabled = false;
         }
     }
-}
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(1);
+        }
+    }
 
     
-
-
-
+}
 

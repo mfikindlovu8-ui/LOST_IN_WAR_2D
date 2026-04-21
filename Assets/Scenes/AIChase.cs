@@ -4,29 +4,70 @@ public class AIChase : MonoBehaviour
 {
 
     public GameObject player;
-    public float speed;
-    public float distanceBetween;
 
-    private float distance;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Movement")]
+    public float patrolSpeed = 2f;
+    public float chaseSpeed = 4f;
+
+    [Header("Detection")]
+    public float detectionRange = 5f;
+
+    private bool isChasing = false;
+
+    // Patrol points
+    public Transform pointA;
+    public Transform pointB;
+    private Transform currentPoint;
+
     void Start()
     {
-
+        currentPoint = pointB;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(transform.position, player.transform.position);
-        Vector3 direction = player.transform.position - transform.position;
-        direction.Normalize();
-        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        if (player == null) return;
 
+        float distance = Vector2.Distance(transform.position, player.transform.position);
 
-        if (distance < distanceBetween)
+        // 🔥 Trigger chase ONCE and never go back
+        if (distance < detectionRange)
         {
-            transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+            isChasing = true;
+        }
+
+        if (isChasing)
+        {
+            ChasePlayer();
+        }
+        else
+        {
+            Patrol();
+        }
+    }
+
+    void ChasePlayer()
+    {
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            player.transform.position,
+            chaseSpeed * Time.deltaTime
+        );
+    }
+
+    void Patrol()
+    {
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            currentPoint.position,
+            patrolSpeed * Time.deltaTime
+        );
+
+        if (Vector2.Distance(transform.position, currentPoint.position) < 0.2f)
+        {
+            currentPoint = (currentPoint == pointA) ? pointB : pointA;
         }
     }
 }
+
+

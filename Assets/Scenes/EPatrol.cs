@@ -4,64 +4,56 @@ public class EPatrol : MonoBehaviour
 {
     public GameObject pointA;
     public GameObject pointB;
-    private Rigidbody2D rb;
-    private Transform currentPoint;
-    public float speed;
 
-    public float degreePerSecond = 15.0f;
+    public float speed = 2f;
+
     public float amplitude = 0.5f;
     public float frequency = 1f;
 
+    private Rigidbody2D rb;
+    private Transform currentPoint;
+    private Vector3 startPos;
 
-    Vector3 posOffset = new Vector3();
-    Vector3 temPos = new Vector3();
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentPoint = pointB.transform;
-        posOffset = transform.position;
+
+        startPos = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        temPos = posOffset;
-        temPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
+        // Direction towards target point
+        Vector2 direction = (currentPoint.position - transform.position).normalized;
 
-        transform.position = temPos;
+        // Move using NEW Unity physics (correct for 2D)
+        rb.linearVelocity = new Vector2(direction.x * speed, rb.linearVelocity.y);
 
-        Vector3 point = currentPoint.position - transform.position;
-        if (currentPoint == pointB.transform)
+        // Switch patrol points when close
+        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
         {
-            rb.linearVelocity = new Vector3(speed, 0);
-        }
-        else
-        {
-            rb.linearVelocity = new Vector3(-speed, 0);
+            currentPoint = (currentPoint == pointB.transform) ? pointA.transform : pointB.transform;
+            Flip();
         }
 
-        if (Vector3.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointB.transform)
-        {
-            flip();
-            currentPoint = pointA.transform;
-        }
-        if (Vector3.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointA.transform)
-        {
-            flip();
-            currentPoint = pointB.transform;
-        }
-    }
-    private void flip()
-    {
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
+        // Floating effect (visual only, does NOT affect physics movement)
+        Vector3 pos = transform.position;
+        pos.y = startPos.y + Mathf.Sin(Time.time * frequency) * amplitude;
+        transform.position = pos;
     }
 
-    private void OnDrawGizmos()
+    void Flip()
     {
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+
+    void OnDrawGizmos()
+    {
+        if (pointA == null || pointB == null) return;
+
         Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
         Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
         Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);

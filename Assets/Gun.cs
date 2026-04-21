@@ -1,109 +1,36 @@
-using System.Runtime.CompilerServices;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] int Damage;
+    [SerializeField] int damage = 1;
+    [SerializeField] float shootForce = 10f;
 
-    [SerializeField] float shootingCooldown;
-    [SerializeField] float spread;
-    [SerializeField] float shootForce;
-    [SerializeField] float reloadTime;
-
-
-    [SerializeField] bool isAutomatic;
-    [SerializeField] bool AutoReload;
-    [SerializeField] int magSize;
-
-    [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] LayerMask whatIsEnemy;
+    [SerializeField] Transform firePoint;
 
-    private float amountOfSpread;
-
-    private int bulletsLeft;
-
-    private bool shooting;
-    private bool reloading;
-    private bool canShoot;
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
+    void Update()
     {
-        bulletsLeft = magSize;
-        canShoot = true;
-        canShoot = true;
-
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        if (isAutomatic)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            shooting = Input.GetKey(KeyCode.Space);
-        }
-        else
-        {
-            shooting = Input.GetKeyDown(KeyCode.Space);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magSize && !reloading)
-        {
-            Reload();
-        }
-
-        if (AutoReload && bulletsLeft <= 0 && !reloading)
-        {
-            Reload();
-        }
-        else
-        {
-
-            if (canShoot && shooting && !reloading && bulletsLeft > 0)
-            {
-                Shoot();
-                bulletsLeft--;
-            }
+            Shoot();
         }
     }
 
-
-    private void Reload()
+    void Shoot()
     {
-        reloading = true;
-        Invoke("FinishReload", reloadTime);
-    }
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-    private void FinishReload()
-    {
-        reloading = false;
-        bulletsLeft = magSize;
-    }
-    private void Shoot()
-    {
-        canShoot = false;
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
-        //Spread
-        amountOfSpread = Random.Range(-spread, spread);
+        // 🔥 ALWAYS SHOOT HORIZONTALLY
+        float direction = transform.localScale.x > 0 ? 1f : -1f;
 
-        Quaternion rotAfterSpread = Quaternion.Euler(firePoint.position.x, firePoint.position.y, +amountOfSpread);
+        rb.linearVelocity = new Vector2(direction * shootForce, 0f);
 
-        //Spawn Bullet
-        GameObject bulletCopy = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        bulletCopy.GetComponent<Rigidbody2D>().AddForce(firePoint.up * shootForce, ForceMode2D.Impulse);
-        bulletCopy.transform.rotation = rotAfterSpread;
-
-        bulletsLeft--;
-        Invoke("ResetShot", shootingCooldown);
-    }
-
-    private void ResetShot()
-    {
-        canShoot = true;
+        Bullet b = bullet.GetComponent<Bullet>();
+        if (b != null)
+        {
+            b.damage = damage;
+        }
     }
 }
-

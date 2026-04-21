@@ -1,20 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class Pause : MonoBehaviour
 {
-  public void Resume ()
+    public void Resume()
     {
-        SceneManager.LoadScene("Environment")
+        SceneManager.LoadScene("Environment");
 
     }
-   public void MainMenu()
+public void MainMenu()
     {
-        SceneManager.LoadScene("Main Menu")
+        SceneManager.LoadScene("Main Menu");
     }
 
-    public void RestartGame()
+public void RestartGame()
     {
-        SceneManager.LoadScene("Environment")
+    SceneManager.LoadScene("Environment");
     }
     
     
