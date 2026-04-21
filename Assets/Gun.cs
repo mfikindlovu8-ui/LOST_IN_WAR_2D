@@ -22,7 +22,7 @@ public class Gun : MonoBehaviour
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
-        // 🔥 ALWAYS SHOOT HORIZONTALLY
+        
         float direction = transform.localScale.x > 0 ? 1f : -1f;
 
         rb.linearVelocity = new Vector2(direction * shootForce, 0f);

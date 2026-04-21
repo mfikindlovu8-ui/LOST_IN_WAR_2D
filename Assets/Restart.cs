@@ -5,7 +5,7 @@ public class Restart : MonoBehaviour
 {
     public void RestartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Environment");
     }
    
     public void QuitGame()
