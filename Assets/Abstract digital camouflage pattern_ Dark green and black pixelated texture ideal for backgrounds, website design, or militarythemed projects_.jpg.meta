@@ -106,9 +106,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 294
-        width: 245
-        height: 147
+        y: 221
+        width: 367
+        height: 220
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
         ideal for backgrounds, website design, or militarythemed projects__1
       rect:
         serializedVersion: 2
-        x: 245
-        y: 294
-        width: 245
-        height: 147
+        x: 367
+        y: 221
+        width: 367
+        height: 220
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,10 +151,10 @@ TextureImporter:
         ideal for backgrounds, website design, or militarythemed projects__2
       rect:
         serializedVersion: 2
-        x: 490
-        y: 294
-        width: 245
-        height: 147
+        x: 0
+        y: 1
+        width: 367
+        height: 220
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
         ideal for backgrounds, website design, or militarythemed projects__3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 147
-        width: 245
-        height: 147
+        x: 367
+        y: 1
+        width: 367
+        height: 220
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,121 +188,6 @@ TextureImporter:
       bones: []
       spriteID: 4d67322a3aa585d448c6842c34cb258e
       internalID: -1701732112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Abstract digital camouflage pattern_ Dark green and black pixelated texture
-        ideal for backgrounds, website design, or militarythemed projects__4
-      rect:
-        serializedVersion: 2
-        x: 245
-        y: 147
-        width: 245
-        height: 147
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47361d107226221418701cbe22a7d500
-      internalID: -1169724532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Abstract digital camouflage pattern_ Dark green and black pixelated texture
-        ideal for backgrounds, website design, or militarythemed projects__5
-      rect:
-        serializedVersion: 2
-        x: 490
-        y: 147
-        width: 245
-        height: 147
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2b7f11a84c32d045892bbc1894fe3e3
-      internalID: 950165411
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Abstract digital camouflage pattern_ Dark green and black pixelated texture
-        ideal for backgrounds, website design, or militarythemed projects__6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 245
-        height: 147
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e744bee58607b348856d9212b684522
-      internalID: -1412246433
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Abstract digital camouflage pattern_ Dark green and black pixelated texture
-        ideal for backgrounds, website design, or militarythemed projects__7
-      rect:
-        serializedVersion: 2
-        x: 245
-        y: 0
-        width: 245
-        height: 147
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ba1fe3bdf7ae4e4bb61c610cc8304f8
-      internalID: 330635836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Abstract digital camouflage pattern_ Dark green and black pixelated texture
-        ideal for backgrounds, website design, or militarythemed projects__8
-      rect:
-        serializedVersion: 2
-        x: 490
-        y: 0
-        width: 245
-        height: 147
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0440a8d0ea7eb6e47bd411522fb8640b
-      internalID: 2003172959
       vertices: []
       indices: 
       edges: []
@@ -321,17 +206,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":245.0,"y":147.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":367.0,"y":220.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Abstract digital camouflage pattern_ Dark green and black pixelated texture ideal for backgrounds, website design, or militarythemed projects__0: -5746871604046936053
       Abstract digital camouflage pattern_ Dark green and black pixelated texture ideal for backgrounds, website design, or militarythemed projects__1: 710331036
       Abstract digital camouflage pattern_ Dark green and black pixelated texture ideal for backgrounds, website design, or militarythemed projects__2: -128229647
       Abstract digital camouflage pattern_ Dark green and black pixelated texture ideal for backgrounds, website design, or militarythemed projects__3: -1701732112
-      Abstract digital camouflage pattern_ Dark green and black pixelated texture ideal for backgrounds, website design, or militarythemed projects__4: -1169724532
-      Abstract digital camouflage pattern_ Dark green and black pixelated texture ideal for backgrounds, website design, or militarythemed projects__5: 950165411
-      Abstract digital camouflage pattern_ Dark green and black pixelated texture ideal for backgrounds, website design, or militarythemed projects__6: -1412246433
-      Abstract digital camouflage pattern_ Dark green and black pixelated texture ideal for backgrounds, website design, or militarythemed projects__7: 330635836
-      Abstract digital camouflage pattern_ Dark green and black pixelated texture ideal for backgrounds, website design, or militarythemed projects__8: 2003172959
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
