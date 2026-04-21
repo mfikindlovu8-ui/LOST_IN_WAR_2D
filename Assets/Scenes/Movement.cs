@@ -45,23 +45,23 @@ public class Movement : MonoBehaviour
     }
 
 
-        public void  attack()
+    public void attack()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
 
-            foreach  (Collider2D enemyGameobject in enemy)
+        foreach (Collider2D enemyGameobject in enemy)
         {
             Debug.Log("Hit enemy");
             enemyGameobject.GetComponent<EnemyHealth>().health -= damage;
         }
 
-        
+
     }
-       // Update is called once per frame
+    // Update is called once per frame
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
-    }
+}
 

@@ -5,13 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-public int maxHealth = 100;
-public int currentHealth;
+    public int maxHealth = 100;
+    public int currentHealth;
 
-public HealthSystem healthBar;
+    public HealthSystem healthBar;
 
-// Start is called before the first frame update
-void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         currentHealth = maxHealth;
     }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AIChase : MonoBehaviour
 {
-   
+
     public GameObject player;
     public float speed;
     public float distanceBetween;
@@ -11,7 +11,7 @@ public class AIChase : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

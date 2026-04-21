@@ -19,9 +19,9 @@ public class EPatrol : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         currentPoint = pointB.transform;
-        posOffset = transform.position; 
+        posOffset = transform.position;
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class EPatrol : MonoBehaviour
         transform.position = temPos;
 
         Vector3 point = currentPoint.position - transform.position;
-        if(currentPoint == pointB.transform)
+        if (currentPoint == pointB.transform)
         {
             rb.linearVelocity = new Vector3(speed, 0);
         }
@@ -43,7 +43,7 @@ public class EPatrol : MonoBehaviour
         }
 
         if (Vector3.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointB.transform)
-                {
+        {
             flip();
             currentPoint = pointA.transform;
         }
@@ -53,14 +53,14 @@ public class EPatrol : MonoBehaviour
             currentPoint = pointB.transform;
         }
     }
-    private void flip() 
+    private void flip()
     {
-      Vector3 localScale = transform.localScale;
+        Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
     }
 
-    private void  OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
         Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
