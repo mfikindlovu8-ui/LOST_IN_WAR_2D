@@ -1,51 +1,59 @@
-//using UnityEngine;
-//using UnityEngine.UI;
+using UnityEngine;
+using UnityEngine.UI;
 
-//public class PlayerHealth : MonoBehaviour
-//{
+public class PlayerHealth : MonoBehaviour
+{
 
-//    public int health;
-//    public int maxHealth;
+    public int health;
+    public int maxHealth;
 
-//    public Sprite emptyHeart;
-//    public Sprite fullHeart;
-//    public Image[] hearts;
+    public Sprite emptyHeart;
+    public Sprite fullHeart;
+    public Image[] hearts;
 
-//    public HealthSystem playerHealth;
+    public HealthSystem playerHealth;
 
 
-//    Start is called once before the first execution of Update after the MonoBehaviour is created
-//    void Start()
-//    {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
 
-//    }
+    }
 
-//    Update is called once per frame
-//    void Update()
-//    {
-//        health = playerHealth.health;
-//        maxHealth = playerHealth.maxHealth;
+    //   Update is called once per frame
+    void Update()
+    {
+        health = playerHealth.health;
 
-//        for (int i = 0; i < hearts.Length; i++)
-//        {
-//            if (i < health)
-//            {
-//                hearts[i].sprite = fullHeart;
-//            }
-//            else
-//            {
-//                hearts[i].sprite = emptyHeart;
-//            }
 
-//            if (i < maxHealth)
-//            {
-//                hearts[i].enabled = true;
-//            }
-//            else
-//            {
-//                hearts[i].enabled = false;
-//            }
+        maxHealth = playerHealth.maxHealth;
+        // Update is called once per frame
+        void Update()
+        {
+            health = playerHealth.health;
+            maxHealth = playerHealth.maxHealth;
 
-//        }
-//    }
-//}
+            for (int i = 0; i < hearts.Length; i++)
+            {
+                if (i < health)
+                {
+                    hearts[i].sprite = fullHeart;
+                }
+                else
+                {
+                    hearts[i].sprite = emptyHeart;
+                }
+
+                if (i < maxHealth)
+                {
+                    hearts[i].enabled = true;
+                }
+                else
+                {
+                    hearts[i].enabled = false;
+                }
+
+            }
+        }
+    }
+}

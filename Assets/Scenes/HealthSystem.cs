@@ -1,44 +1,63 @@
-//using UnityEngine;
+using UnityEngine;
 
-//public class HealthSystem : MonoBehaviour
-//{
+public class HealthSystem : MonoBehaviour
+{
 
-//    public int health;
-//    public int maxHealth = 3;
+    public int health;
+    public int maxHealth = 3;
 
-//    public SpriteRenderer playerSr;
-//    public Movement playerMovement;
+    public SpriteRenderer playerSr;
+    public Movement playerMovement;
 
 
-//    // Start is called once before the first execution of Update after the MonoBehaviour is created
-//    void Start()
-//    {
-//        health = maxHealth;
-//    }
+    // HEAD
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        health = maxHealth;
+    }
 
-//    void Update()
-//    {
+    void Update()
+    {
 
-//        if (Input.GetKeyDown(KeyCode.D))
-//        {
-//            // Damage(1);
-//        }
+        //  Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
+        {
+            health = maxHealth;
+        }
 
-//        if (Input.GetKeyDown(KeyCode.H))
+        void Update()
+        {
 
-//        {
-//            // Heal(1);
-//        }
-//    }
-//    public void TakeDamage(int amount)
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                // Damage(1);
+            }
 
-//    {
-//        health -= amount;
-//        if (health <= 0)
-//        {
-//            playerSr.enabled = false;
-//            playerMovement.enabled = false;
-//        }
-//    }
-//}
+            if (Input.GetKeyDown(KeyCode.H))
+
+            // <<<<<<< HEAD
+            {
+                // Heal(1);
+            }
+        }
+    }
+
+    public void TakeDamage(int amount)
+
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            playerSr.enabled = false;
+            playerMovement.enabled = false;
+        }
+    }
+}
+
+
+    
+
+
+
 

@@ -1,11 +1,13 @@
 using UnityEngine;
 
-public class enemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
-    
+
+
+
     public float health;
     public float currentHealth;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,9 +22,13 @@ public class enemyHealth : MonoBehaviour
             currentHealth = health;
 
         }
-        if(health >= 0)
+        if (health >= 0)
         {
             Debug.Log("Enemy Defeated");
         }
     }
+
+
 }
+
+
