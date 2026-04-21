@@ -1,59 +1,55 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-
     public int health;
     public int maxHealth;
 
-    public Sprite emptyHeart;
-    public Sprite fullHeart;
-    public Image[] hearts;
+    public RawImage[] hearts;
+    public Texture fullHeart;
 
     public HealthSystem playerHealth;
 
+    public string gameOverSceneName = "GameOver";
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    private bool isDead = false;
 
-    }
-
-    //   Update is called once per frame
     void Update()
     {
         health = playerHealth.health;
-
-
         maxHealth = playerHealth.maxHealth;
-        // Update is called once per frame
-        void Update()
+
+        for (int i = 0; i < hearts.Length; i++)
         {
-            health = playerHealth.health;
-            maxHealth = playerHealth.maxHealth;
-
-            for (int i = 0; i < hearts.Length; i++)
+            if (i < health)
             {
-                if (i < health)
-                {
-                    hearts[i].sprite = fullHeart;
-                }
-                else
-                {
-                    hearts[i].sprite = emptyHeart;
-                }
-
-                if (i < maxHealth)
-                {
-                    hearts[i].enabled = true;
-                }
-                else
-                {
-                    hearts[i].enabled = false;
-                }
-
+                hearts[i].enabled = true;
+                hearts[i].texture = fullHeart;
+            }
+            else
+            {
+                hearts[i].enabled = false;
             }
         }
+
+        // Check death
+        if (!isDead && health <= 0)
+        {
+            Die();
+        }
     }
+
+    void Die()
+    {
+        isDead = true;
+
+        // Optional: stop player movement visually
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene(gameOverSceneName);
+    }
+ 
 }
+
