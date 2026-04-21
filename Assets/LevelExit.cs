@@ -3,16 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    [SerializeField] private string WellDoneSceneName = "Well Done Scene";
+    [SerializeField] private string WelldoneScene = "Well Done Scene"; 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Something entered the trigger: " + collision.name);
+        Debug.Log("Triggered by: " + collision.name); 
 
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Player reached the exit!");
-            SceneManager.LoadScene("Well Done Scene");
+            SceneManager.LoadScene(WelldoneScene); 
         }
     }
 }

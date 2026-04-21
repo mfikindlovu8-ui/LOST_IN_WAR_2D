@@ -3945,7 +3945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0de0ee219abd4b49b0782a020b8466e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  health: 3
+  health: 1
   maxHealth: 3
   hearts:
   - {fileID: 2062162728}
