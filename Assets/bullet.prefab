@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5929083463261440201}
   - component: {fileID: 4396074865536025160}
   - component: {fileID: 6815725748255228398}
+  - component: {fileID: 3713413802304370408}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -150,7 +151,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -166,3 +167,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3713413802304370408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7524698015754571042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238abfa99e3276842816abd3aefdaf21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  damage: 1
+  lifeTime: 2

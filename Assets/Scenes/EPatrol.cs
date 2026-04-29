@@ -27,7 +27,7 @@ public class EPatrol : MonoBehaviour
         // Direction towards target point
         Vector2 direction = (currentPoint.position - transform.position).normalized;
 
-        // Move using NEW Unity physics (correct for 2D)
+        
         rb.linearVelocity = new Vector2(direction.x * speed, rb.linearVelocity.y);
 
         // Switch patrol points when close
