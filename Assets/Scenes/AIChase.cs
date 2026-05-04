@@ -30,7 +30,7 @@ public class AIChase : MonoBehaviour
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
-        // 🔥 Trigger chase ONCE and never go back
+        
         if (distance < detectionRange)
         {
             isChasing = true;

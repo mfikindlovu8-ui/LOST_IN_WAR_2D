@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -10,15 +11,17 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            EnemyHealth enemy = collision.GetComponentInParent<EnemyHealth>();
+            EnemyHealth enemy = collision.gameObject.GetComponentInParent<EnemyHealth>();
 
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+
+
             }
 
             Destroy(gameObject);

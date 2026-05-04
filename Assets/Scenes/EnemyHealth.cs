@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     {
         health -= damage;
 
+        Debug.Log("Enemy took " + damage + " damage. Remaining health: " + health);
 
         if (health <= 0)
         {
