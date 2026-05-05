@@ -10,19 +10,19 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
-        // You can add code here to trigger the enemy attack, for example, when the player is in range
+       
     }
 
     void Attack()
     {
-        // Detect players in range of attack
+        
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayers);
 
-        // Damage them
+        
         foreach (Collider2D player in hitPlayers)
         {
             Debug.Log("Enemy hit " + player.name);
-            // Here you can add code to damage the player
+           
         }
     }
 
