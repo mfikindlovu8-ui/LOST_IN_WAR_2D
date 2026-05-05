@@ -19,7 +19,7 @@ public class AIChase : MonoBehaviour
 
     void Start()
     {
-        currentPoint = pointB;
+        currentPoint = pointB != null ? pointB : pointA;
         anim = GetComponent<Animator>();
     }
 
@@ -30,54 +30,48 @@ public class AIChase : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.transform.position);
         bool isChasing = distance < detectionRange;
 
-        Vector2 oldPos = transform.position;
+        Vector2 target;
+        float speed;
 
+        // ---------------- STATE ----------------
         if (isChasing)
         {
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                player.transform.position,
-                chaseSpeed * Time.deltaTime
-            );
+            target = player.transform.position;
+            speed = chaseSpeed;
         }
         else
         {
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                currentPoint.position,
-                patrolSpeed * Time.deltaTime
-            );
-
-            if (Vector2.Distance(transform.position, currentPoint.position) < 0.2f)
-            {
-                currentPoint = (currentPoint == pointA) ? pointB : pointA;
-            }
+            target = currentPoint.position;
+            speed = patrolSpeed;
         }
 
-        // Movement delta
-        Vector2 movement = (Vector2)transform.position - oldPos;
+        // ---------------- MOVE ----------------
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            target,
+            speed * Time.deltaTime
+        );
 
-        // SNAP direction (CRITICAL FIX)
+        // Switch patrol points safely
+        if (!isChasing &&
+            Vector2.SqrMagnitude((Vector2)transform.position - (Vector2)currentPoint.position) < 0.04f)
+        {
+            currentPoint = (currentPoint == pointA) ? pointB : pointA;
+        }
+
+        // ---------------- CLEAN DIRECTION (KEY FIX) ----------------
+        Vector2 direction = (target - (Vector2)transform.position).normalized;
+
         Vector2 dir = Vector2.zero;
 
-        if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
-        {
-            dir = new Vector2(Mathf.Sign(movement.x), 0);
-        }
-        else if (movement.magnitude > 0.01f)
-        {
-            dir = new Vector2(0, Mathf.Sign(movement.y));
-        }
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+            dir = new Vector2(Mathf.Sign(direction.x), 0);
+        else
+            dir = new Vector2(0, Mathf.Sign(direction.y));
 
-        // Animator
+        // ---------------- ANIMATION ----------------
         anim.SetFloat("MoveX", dir.x);
         anim.SetFloat("MoveY", dir.y);
-        anim.SetFloat("Speed", movement.magnitude);
-
-        if (movement.magnitude > 0.01f)
-        {
-            anim.SetFloat("LastMoveX", dir.x);
-            anim.SetFloat("LastMoveY", dir.y);
-        }
+        anim.SetFloat("Speed", speed);
     }
 }

@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
             EnemyHealth enemy = collision.gameObject.GetComponentInParent<EnemyHealth>();
