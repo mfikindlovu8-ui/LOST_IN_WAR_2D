@@ -2,16 +2,22 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [Header("Movement")]
     public float moveSpeed = 5f;
 
+    [Header("Animation")]
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
-    private Vector3 movDirection;
+    private Vector2 input;
     private bool isWalking;
 
     public Vector2 lastMoveDir = Vector2.down;
 
+    // ✅ REQUIRED FOR GUN
+    public Vector2 currentInput;
+
+    [Header("Combat")]
     public Transform attackPoint;
     public float radius = 1f;
     public int damage = 1;
@@ -33,67 +39,41 @@ public class Movement : MonoBehaviour
         }
     }
 
-         public void Move()
+    public void Move()
+    {
+        input = new Vector2(
+            Input.GetAxisRaw("Horizontal"),
+            Input.GetAxisRaw("Vertical")
+        );
+
+        // ✅ STORE INPUT FOR GUN
+        currentInput = input;
+
+        Vector3 move = new Vector3(input.x, input.y, 0f).normalized;
+
+        if (input != Vector2.zero)
         {
-            Vector2 input = new Vector2(
-                Input.GetAxisRaw("Horizontal"),
-                Input.GetAxisRaw("Vertical")
-            );
+            lastMoveDir = input.normalized;
+        }
 
-            Vector3 movDirection = new Vector3(input.x, input.y, 0f);
+        transform.position += move * moveSpeed * Time.deltaTime;
 
-            // update facing direction ONLY when moving
-            if (input != Vector2.zero)
-            {
-                lastMoveDir = input.normalized;
-            }
+        isWalking = input != Vector2.zero;
 
-            transform.position += movDirection.normalized * moveSpeed * Time.deltaTime;
+        animator.SetBool("isWalking", isWalking);
 
-            isWalking = input != Vector2.zero;
-            animator.SetBool("isWalking", isWalking);
+        if (isWalking)
+        {
             animator.SetFloat("MoveX", input.x);
             animator.SetFloat("MoveY", input.y);
-
-            movDirection = Vector3.zero;
-
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-                movDirection.y += 1f;
-
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-                movDirection.y -= 1f;
-
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-                movDirection.x -= 1f;
-
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-                movDirection.x += 1f;
-
-            isWalking = movDirection != Vector3.zero;
-
-            if (isWalking)
-            {
-                lastMoveDir = movDirection;
-            }
-
-            transform.position += movDirection.normalized * moveSpeed * Time.deltaTime;
-
-
-
-            animator.SetBool("isWalking", isWalking);
-
-            if (isWalking)
-            {
-                animator.SetFloat("MoveX", movDirection.x);
-                animator.SetFloat("MoveY", movDirection.y);
-            }
-            else
-            {
-                animator.SetFloat("MoveX", lastMoveDir.x);
-                animator.SetFloat("MoveY", lastMoveDir.y);
-            }
         }
-        
+        else
+        {
+            animator.SetFloat("MoveX", lastMoveDir.x);
+            animator.SetFloat("MoveY", lastMoveDir.y);
+        }
+    }
+
     public void attack()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(
@@ -104,8 +84,6 @@ public class Movement : MonoBehaviour
 
         foreach (Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("Hit enemy");
-
             EnemyHealth health = enemyGameobject.GetComponent<EnemyHealth>();
 
             if (health != null)
@@ -121,5 +99,4 @@ public class Movement : MonoBehaviour
 
         Gizmos.DrawWireSphere(attackPoint.position, radius);
     }
-
 }

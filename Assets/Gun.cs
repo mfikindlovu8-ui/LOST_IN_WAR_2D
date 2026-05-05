@@ -2,22 +2,26 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [Header("Stats")]
     [SerializeField] int damage = 1;
     [SerializeField] float shootForce = 10f;
 
+    [Header("References")]
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform firePoint;
+    [SerializeField] Animator gunAnimator;
 
-    private Movement playerMovement;
+    [Header("Player Reference")]
+    [SerializeField] Movement playerMovement;
+    [SerializeField] Transform playerTransform;
 
-    void Start()
-    {
-        playerMovement = transform.root.GetComponent<Movement>();
-    }
+    [Header("Follow Settings")]
+    [SerializeField] Vector3 offset;
 
     void Update()
     {
-        HandleFlip();
+        FollowPlayer();
+        UpdateAnimation();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -25,36 +29,41 @@ public class Gun : MonoBehaviour
         }
     }
 
-    void HandleFlip()
+    void FollowPlayer()
     {
-       
-        if (playerMovement.lastMoveDir.x < 0)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else if (playerMovement.lastMoveDir.x > 0)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+        if (playerTransform == null) return;
+
+        transform.position = playerTransform.position + offset;
+    }
+
+    void UpdateAnimation()
+    {
+        if (gunAnimator == null || playerMovement == null) return;
+
+        Vector2 dir = playerMovement.lastMoveDir;
+
+        if (dir == Vector2.zero)
+            dir = Vector2.down;
+
+        gunAnimator.SetFloat("moveX", dir.x);
+        gunAnimator.SetFloat("moveY", dir.y);
     }
 
     void Shoot()
     {
+        if (bulletPrefab == null || firePoint == null) return;
+
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        if (rb == null) return;
 
         Vector2 direction = playerMovement.lastMoveDir;
 
-        // safety fallback
         if (direction == Vector2.zero)
-            direction = Vector2.right;
+            direction = Vector2.down;
 
         rb.linearVelocity = direction.normalized * shootForce;
-
-        // rotate bullet visually to match direction
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
 
         Bullet b = bullet.GetComponent<Bullet>();
         if (b != null)

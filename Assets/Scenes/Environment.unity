@@ -215,8 +215,6 @@ MonoBehaviour:
   pointA: {fileID: 964506246}
   pointB: {fileID: 1562866402}
   speed: 0.5
-  amplitude: 0.5
-  frequency: 1
 --- !u!114 &4240587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,9 +1017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EPatrol
   pointA: {fileID: 1515488103}
   pointB: {fileID: 877286913}
-  speed: 1.25
-  amplitude: 1
-  frequency: 1
+  speed: 0.7
 --- !u!114 &106186885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,8 +1031,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
-  patrolSpeed: 1.25
-  chaseSpeed: 1.25
+  patrolSpeed: 0.75
+  chaseSpeed: 0.75
   detectionRange: 6
   pointA: {fileID: 1515488104}
   pointB: {fileID: 877286914}
@@ -1341,8 +1337,6 @@ MonoBehaviour:
   pointA: {fileID: 1638759360}
   pointB: {fileID: 1227416563}
   speed: 0.5
-  amplitude: 0.5
-  frequency: 1
 --- !u!114 &178233771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1898,7 +1892,7 @@ Transform:
   m_GameObject: {fileID: 401414302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.92, y: 1.37, z: 0}
+  m_LocalPosition: {x: -9.92, y: -0.42, z: 0}
   m_LocalScale: {x: 3, y: 21.841894, z: 6.3157897}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2478,8 +2472,6 @@ MonoBehaviour:
   pointA: {fileID: 1549496311}
   pointB: {fileID: 1453489560}
   speed: 0.5
-  amplitude: 0.5
-  frequency: 1
 --- !u!114 &725509969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2985,9 +2977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EPatrol
   pointA: {fileID: 1961314257}
   pointB: {fileID: 401414302}
-  speed: 1.25
-  amplitude: 1
-  frequency: 1
+  speed: 0.75
 --- !u!114 &889547024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3120,7 +3110,7 @@ Transform:
   m_GameObject: {fileID: 889547019}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.92, y: 4.87, z: 0}
+  m_LocalPosition: {x: -9.92, y: 3.52, z: 0}
   m_LocalScale: {x: 0.39, y: 0.3862981, z: 0.40680084}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -11954,8 +11944,6 @@ MonoBehaviour:
   pointA: {fileID: 1867050154}
   pointB: {fileID: 1546385009}
   speed: 0.5
-  amplitude: 0.5
-  frequency: 1
 --- !u!114 &1881374545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12141,8 +12129,8 @@ Transform:
   m_GameObject: {fileID: 1961314257}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.92, y: 8.06, z: 0}
-  m_LocalScale: {x: 3, y: 11.757455, z: 3.6363637}
+  m_LocalPosition: {x: -9.92, y: 8.09, z: 0}
+  m_LocalScale: {x: 3.1600003, y: 12.38452, z: 3.8303034}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 205274574}
