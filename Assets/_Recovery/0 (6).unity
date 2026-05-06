@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 4240584}
   - component: {fileID: 4240583}
   - component: {fileID: 4240591}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy 3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EPatrol
   pointA: {fileID: 964506246}
   pointB: {fileID: 1562866402}
-  speed: 0.75
+  speed: 0.5
 --- !u!114 &4240587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,8 +228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
-  patrolSpeed: 0.9
-  chaseSpeed: 0.9
+  patrolSpeed: 2
+  chaseSpeed: 1
   detectionRange: 6
   pointA: {fileID: 964506247}
   pointB: {fileID: 1562866403}
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 22507433}
   - component: {fileID: 22507431}
   - component: {fileID: 22507438}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy Brown
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ Transform:
   m_GameObject: {fileID: 22507429}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.01, y: -6.45, z: 0}
+  m_LocalPosition: {x: 3.01, y: -6.85, z: 0}
   m_LocalScale: {x: 0.49, y: 0.4853489, z: 0.51110876}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -504,8 +504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
-  patrolSpeed: 1.25
-  chaseSpeed: 1.25
+  patrolSpeed: 2
+  chaseSpeed: 2
   detectionRange: 6
   pointA: {fileID: 1689002831}
   pointB: {fileID: 1488459980}
@@ -774,7 +774,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 98783990}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy 6 Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,7 +815,7 @@ GameObject:
   - component: {fileID: 106186882}
   - component: {fileID: 106186881}
   - component: {fileID: 106186889}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -893,7 +893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EPatrol
   pointA: {fileID: 1515488103}
   pointB: {fileID: 877286913}
-  speed: 0.75
+  speed: 0.7
 --- !u!114 &106186885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,8 +907,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
-  patrolSpeed: 0.9
-  chaseSpeed: 0.9
+  patrolSpeed: 0.75
+  chaseSpeed: 0.75
   detectionRange: 6
   pointA: {fileID: 1515488104}
   pointB: {fileID: 877286914}
@@ -1026,7 +1026,7 @@ Transform:
   m_GameObject: {fileID: 106186880}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.12, y: -4.91, z: 0}
+  m_LocalPosition: {x: -6.12, y: -5.61, z: 0}
   m_LocalScale: {x: 0.39, y: 0.3862981, z: 0.40680084}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1071,7 +1071,7 @@ GameObject:
   - component: {fileID: 178233768}
   - component: {fileID: 178233767}
   - component: {fileID: 178233775}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy 5
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EPatrol
   pointA: {fileID: 1638759360}
   pointB: {fileID: 1227416563}
-  speed: 0.75
+  speed: 0.5
 --- !u!114 &178233771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
-  patrolSpeed: 1
+  patrolSpeed: 2
   chaseSpeed: 1
   detectionRange: 6
   pointA: {fileID: 1638759361}
@@ -1319,7 +1319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 205274574}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1656,7 +1656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 346843031}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy 3 points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1689,7 +1689,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 401414303}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2057,7 +2057,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642863041}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy 2 points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2222,7 +2222,7 @@ GameObject:
   - component: {fileID: 725509966}
   - component: {fileID: 725509965}
   - component: {fileID: 725509972}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy 4
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2315,7 +2315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EPatrol
   pointA: {fileID: 1549496311}
   pointB: {fileID: 1453489560}
-  speed: 0.75
+  speed: 0.5
 --- !u!114 &725509969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2329,8 +2329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
-  patrolSpeed: 0.9
-  chaseSpeed: 0.9
+  patrolSpeed: 2
+  chaseSpeed: 1
   detectionRange: 6
   pointA: {fileID: 1549496312}
   pointB: {fileID: 1453489561}
@@ -2704,7 +2704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 877286914}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2720,7 +2720,7 @@ Transform:
   m_GameObject: {fileID: 877286913}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.72, y: -3.48, z: 0}
+  m_LocalPosition: {x: -0.72, y: -4.71, z: 0}
   m_LocalScale: {x: 3, y: 11.757455, z: 3.6363637}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2743,7 +2743,7 @@ GameObject:
   - component: {fileID: 889547021}
   - component: {fileID: 889547020}
   - component: {fileID: 889547028}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2837,7 +2837,7 @@ MonoBehaviour:
   player: {fileID: 1788939945}
   patrolSpeed: 0.9
   chaseSpeed: 0.9
-  detectionRange: 5
+  detectionRange: 7
   pointA: {fileID: 1961314258}
   pointB: {fileID: 401414303}
 --- !u!61 &889547025
@@ -2991,7 +2991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 906892185}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: AttackPoint (Enemy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3022,7 +3022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 964506247}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3094,7 +3094,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7524698015754571042, guid: c0a7c06d8f1e6c647b3df887824ec992, type: 3}
   firePoint: {fileID: 1138151034}
   gunAnimator: {fileID: 0}
-  playerMovement: {fileID: 1788939951}
+  playerMovement: {fileID: 0}
   playerTransform: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
 --- !u!114 &1138151036
@@ -3120,7 +3120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1227416564}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point 5B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3382,7 +3382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253248171}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy 5 Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3415,7 +3415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1453489561}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point 4B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3446,7 +3446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1486563844}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy 4 Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3495,7 +3495,7 @@ Transform:
   m_GameObject: {fileID: 1488459979}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.03, y: -7.29, z: 0}
+  m_LocalPosition: {x: 4.33, y: -8.25, z: 0}
   m_LocalScale: {x: 3, y: 11.757455, z: 3.6363637}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3510,7 +3510,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1515488104}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3526,7 +3526,7 @@ Transform:
   m_GameObject: {fileID: 1515488103}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.72, y: 3.8, z: 0}
+  m_LocalPosition: {x: -0.72, y: 1.24, z: 0}
   m_LocalScale: {x: 3, y: 11.757455, z: 3.6363637}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3541,7 +3541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1546385010}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point 6B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3572,7 +3572,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1549496312}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point 4A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3603,7 +3603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1562866403}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3876,7 +3876,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7524698015754571042, guid: c0a7c06d8f1e6c647b3df887824ec992, type: 3}
   firePoint: {fileID: 1138151034}
   gunAnimator: {fileID: 0}
-  playerMovement: {fileID: 1788939951}
+  playerMovement: {fileID: 0}
   playerTransform: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
 --- !u!212 &1626317290
@@ -3947,7 +3947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1638759361}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point 5A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4164,7 +4164,7 @@ Transform:
   m_GameObject: {fileID: 1689002830}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09, y: -7.61, z: 0}
+  m_LocalPosition: {x: 1.58, y: -8.24, z: 0}
   m_LocalScale: {x: 3, y: 11.757455, z: 3.6363637}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4188,7 +4188,7 @@ GameObject:
   - component: {fileID: 1788939947}
   - component: {fileID: 1788939946}
   - component: {fileID: 1788939955}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: 'Player '
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4315,10 +4315,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33397e32ea5a66e4882f520547e94ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  moveSpeed: 1.25
+  moveSpeed: 0.85
   lastMoveDir: {x: 0, y: -1}
   currentInput: {x: 0, y: 0}
-  attackPoint: {fileID: 640554460}
+  attackPoint: {fileID: 0}
   radius: 0.38
   damage: 1
   enemies:
@@ -11880,7 +11880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1867050155}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point 6A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11919,7 +11919,7 @@ GameObject:
   - component: {fileID: 1881374542}
   - component: {fileID: 1881374541}
   - component: {fileID: 1881374549}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy 6
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -11997,7 +11997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EPatrol
   pointA: {fileID: 1867050154}
   pointB: {fileID: 1546385009}
-  speed: 0.75
+  speed: 0.5
 --- !u!114 &1881374545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12011,8 +12011,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
-  patrolSpeed: 0.95
-  chaseSpeed: 0.95
+  patrolSpeed: 2
+  chaseSpeed: 1
   detectionRange: 6
   pointA: {fileID: 1867050155}
   pointB: {fileID: 1546385010}
@@ -12167,7 +12167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1961314258}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
