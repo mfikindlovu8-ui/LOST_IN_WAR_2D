@@ -6,8 +6,8 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Environment");
-            }
+        SceneManager.LoadScene("Level 1");
+    }
 
     public void Exit()
     {
