@@ -2,73 +2,93 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [Header("Stats")]
-    [SerializeField] int damage = 1;
-    [SerializeField] float shootForce = 10f;
+[Header("Stats")]
+[SerializeField] int damage = 1;
+[SerializeField] float shootForce = 10f;
 
-    [Header("References")]
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] Transform firePoint;
-    [SerializeField] Animator gunAnimator;
+[Header("Audio")]
+AudioSource audioSource;
+AudioClip gunshotSound;
 
-    [Header("Player Reference")]
-    [SerializeField] Movement playerMovement;
-    [SerializeField] Transform playerTransform;
+[Header("References")]
+[SerializeField] GameObject bulletPrefab;
+[SerializeField] Transform firePoint;
+[SerializeField] Animator gunAnimator;
 
-    [Header("Follow Settings")]
-    [SerializeField] Vector3 offset;
+[Header("Player Reference")]
+[SerializeField] Movement playerMovement;
+[SerializeField] Transform playerTransform;
 
-    void Update()
-    {
-        FollowPlayer();
-        UpdateAnimation();
+[Header("Follow Settings")]
+[SerializeField] Vector3 offset;
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Shoot();
-        }
-    }
+void Start()
+{
+// Get AudioSource component
+audioSource = GetComponent<AudioSource>();
 
-    void FollowPlayer()
-    {
-        if (playerTransform == null) return;
+// Load audio file named "Big Gunshot Audio"
+gunshotSound = Resources.Load<AudioClip>("Big Gunshot Audio");
 
-        transform.position = playerTransform.position + offset;
-    }
+}
 
-    void UpdateAnimation()
-    {
-        if (gunAnimator == null || playerMovement == null) return;
+void Update()
+{
+FollowPlayer();
+UpdateAnimation();
 
-        Vector2 dir = playerMovement.lastMoveDir;
+if (Input.GetKeyDown(KeyCode.Space))
+{
+Shoot();
+}
+}
 
-        if (dir == Vector2.zero)
-            dir = Vector2.down;
+void FollowPlayer()
+{
+if (playerTransform == null) return;
 
-        gunAnimator.SetFloat("moveX", dir.x);
-        gunAnimator.SetFloat("moveY", dir.y);
-    }
+transform.position = playerTransform.position + offset;
+}
 
-    void Shoot()
-    {
-        if (bulletPrefab == null || firePoint == null) return;
+void UpdateAnimation()
+{
+if (gunAnimator == null || playerMovement == null) return;
 
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+Vector2 dir = playerMovement.lastMoveDir;
 
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        if (rb == null) return;
+if (dir == Vector2.zero)
+dir = Vector2.down;
 
-        Vector2 direction = playerMovement.lastMoveDir;
+gunAnimator.SetFloat("moveX", dir.x);
+gunAnimator.SetFloat("moveY", dir.y);
+}
 
-        if (direction == Vector2.zero)
-            direction = Vector2.down;
+void Shoot()
+{
+if (bulletPrefab == null || firePoint == null) return;
 
-        rb.linearVelocity = direction.normalized * shootForce;
+// PLAY GUN SOUND
+if (gunshotSound != null && audioSource != null)
+{
+audioSource.PlayOneShot(gunshotSound);
+}
 
-        Bullet b = bullet.GetComponent<Bullet>();
-        if (b != null)
-        {
-            b.damage = damage;
-        }
-    }
+GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+if (rb == null) return;
+
+Vector2 direction = playerMovement.lastMoveDir;
+
+if (direction == Vector2.zero)
+direction = Vector2.down;
+
+rb.linearVelocity = direction.normalized * shootForce;
+
+Bullet b = bullet.GetComponent<Bullet>();
+if (b != null)
+{
+b.damage = damage;
+}
+}
 }
