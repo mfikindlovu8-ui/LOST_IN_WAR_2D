@@ -10,20 +10,25 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    // Call this when spawning the bullet
     public void SetDirection(Vector2 direction)
     {
         direction = direction.normalized;
 
-        // Convert direction into an angle (supports diagonals automatically)
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Adjust if your sprite is not facing right by default
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // IGNORE PLAYER + GUN
+        if (collision.gameObject.CompareTag("Player"))
+            return;
+
+        if (collision.gameObject.CompareTag("Gun"))
+            return;
+
+        // DAMAGE ENEMY
         if (collision.gameObject.CompareTag("Enemy"))
         {
             EnemyHealth enemy = collision.gameObject.GetComponentInParent<EnemyHealth>();
@@ -32,8 +37,9 @@ public class Bullet : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
             }
-
-            Destroy(gameObject);
         }
+
+        // DESTROY BULLET ONLY
+        Destroy(gameObject);
     }
 }

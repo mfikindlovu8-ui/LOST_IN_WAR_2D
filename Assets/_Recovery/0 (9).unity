@@ -188,8 +188,8 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 3
   rb: {fileID: 4240583}
-  player: {fileID: 1788939954}
   knockbackForce: 2
+  player: {fileID: 1788939954}
   spriteRenderer: {fileID: 4240589}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.2
@@ -571,12 +571,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 10
   deathEffect: {fileID: 2378037648180139071, guid: ca9b914c5b6e5e042b42538a989b2e84, type: 3}
-  bulletPickup: {fileID: 2651876933537465041, guid: 10e5e600912f0704d8df9bd497141c4e, type: 3}
+  bulletPickup: {fileID: 7524698015754571042, guid: c0a7c06d8f1e6c647b3df887824ec992, type: 3}
   minDrop: 1
   maxDrop: 15
   rb: {fileID: 22507433}
-  player: {fileID: 1788939954}
   knockbackForce: 5
+  player: {fileID: 1788939954}
   spriteRenderer: {fileID: 22507437}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
@@ -1062,8 +1062,8 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 3
   rb: {fileID: 106186881}
+  knockbackForce: 5
   player: {fileID: 1788939954}
-  knockbackForce: 1
   spriteRenderer: {fileID: 106186887}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
@@ -1487,8 +1487,8 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 3
   rb: {fileID: 178233767}
-  player: {fileID: 1788939954}
   knockbackForce: 5
+  player: {fileID: 1788939954}
   spriteRenderer: {fileID: 178233773}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
@@ -3277,6 +3277,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566494471}
   m_CullTransparentMesh: 1
+--- !u!1 &640554459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 640554460}
+  m_Layer: 7
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &640554460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640554459}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.07, y: -0.09039562, z: 0}
+  m_LocalScale: {x: 0.5649717, y: 0.5649717, z: 1.1299436}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1626317285}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &642863040
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,8 +3690,8 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 3
   rb: {fileID: 725509965}
-  player: {fileID: 1788939954}
   knockbackForce: 5
+  player: {fileID: 1788939954}
   spriteRenderer: {fileID: 725509971}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
@@ -3672,7 +3703,7 @@ MonoBehaviour:
   - {fileID: 1704114930}
   - {fileID: 161856707}
   healthUI: {fileID: 1783545060}
-  showDistance: 1
+  showDistance: 5
 --- !u!114 &725509967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3720,7 +3751,7 @@ MonoBehaviour:
   player: {fileID: 1788939945}
   patrolSpeed: 0.9
   chaseSpeed: 0.9
-  detectionRange: 2
+  detectionRange: 6
   pointA: {fileID: 1549496312}
   pointB: {fileID: 1453489561}
 --- !u!61 &725509970
@@ -4306,37 +4337,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835596991}
   m_CullTransparentMesh: 1
---- !u!1 &855357969
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 855357970}
-  m_Layer: 7
-  m_Name: AttackPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &855357970
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855357969}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.70495737, w: 0.70924973}
-  m_LocalPosition: {x: 1.1107492, y: -0.74708027, z: 0.14}
-  m_LocalScale: {x: 0.9999478, y: 1, z: 1.0000261}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1788939954}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &856316712
 GameObject:
   m_ObjectHideFlags: 0
@@ -4590,8 +4590,8 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 4
   rb: {fileID: 889547020}
+  knockbackForce: 10
   player: {fileID: 1788939954}
-  knockbackForce: 3
   spriteRenderer: {fileID: 889547026}
   flashColor: {r: 1, g: 0.33647794, b: 0.33647794, a: 1}
   flashDuration: 0.2
@@ -5369,6 +5369,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1138151034}
+  - component: {fileID: 1138151036}
+  - component: {fileID: 1138151035}
   m_Layer: 7
   m_Name: FirePoint
   m_TagString: Player
@@ -5385,12 +5387,48 @@ Transform:
   m_GameObject: {fileID: 1138151033}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.034, y: 0.006, z: -0.0078000017}
+  m_LocalPosition: {x: 0.01, y: 0.21, z: -0.0078000017}
   m_LocalScale: {x: 0.4, y: 0.61326647, z: 2.9628682}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1626317285}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1138151035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138151033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c7a7728f42741469cc353180f99078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gun
+  damage: 1
+  shootForce: 2
+  maxAmmo: 12
+  bulletPrefab: {fileID: 7524698015754571042, guid: c0a7c06d8f1e6c647b3df887824ec992, type: 3}
+  firePoint: {fileID: 1138151034}
+  playerMovement: {fileID: 1788939951}
+  playerTransform: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  ammoText: {fileID: 0}
+  outOfAmmoText: {fileID: 0}
+--- !u!114 &1138151036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138151033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238abfa99e3276842816abd3aefdaf21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  damage: 5
+  lifeTime: 100
 --- !u!1 &1176726235
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,10 +6605,11 @@ GameObject:
   - component: {fileID: 1626317285}
   - component: {fileID: 1626317290}
   - component: {fileID: 1626317289}
+  - component: {fileID: 1626317288}
   - component: {fileID: 1626317287}
   m_Layer: 7
-  m_Name: Gun
-  m_TagString: Gun
+  m_Name: LIW GUN_0
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -6589,6 +6628,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1138151034}
+  - {fileID: 640554460}
   m_Father: {fileID: 1788939954}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.652}
 --- !u!95 &1626317287
@@ -6613,6 +6653,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1626317288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626317284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238abfa99e3276842816abd3aefdaf21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  damage: 1
+  lifeTime: 50
 --- !u!114 &1626317289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6627,7 +6681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gun
   damage: 1
   shootForce: 100
-  maxAmmo: 15
+  maxAmmo: 50
   bulletPrefab: {fileID: 7524698015754571042, guid: c0a7c06d8f1e6c647b3df887824ec992, type: 3}
   firePoint: {fileID: 1138151034}
   playerMovement: {fileID: 1788939951}
@@ -7728,7 +7782,7 @@ MonoBehaviour:
   moveSpeed: 1.25
   lastMoveDir: {x: 0, y: -1}
   currentInput: {x: 0, y: 0}
-  attackPoint: {fileID: 855357970}
+  attackPoint: {fileID: 640554460}
   radius: 0.38
   damage: 1
   enemies:
@@ -7834,7 +7888,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1626317285}
-  - {fileID: 855357970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1788939955
@@ -15532,8 +15585,8 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 3
   rb: {fileID: 1881374541}
-  player: {fileID: 1788939954}
   knockbackForce: 5
+  player: {fileID: 1788939954}
   spriteRenderer: {fileID: 1881374547}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.1
