@@ -15,7 +15,6 @@ public class Gun : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform firePoint;
-    [SerializeField] Animator gunAnimator;
 
     [Header("Player Reference")]
     [SerializeField] Movement playerMovement;
@@ -25,26 +24,28 @@ public class Gun : MonoBehaviour
     [SerializeField] Vector3 offset;
 
     [Header("UI")]
-    [SerializeField] Image bulletImage;
     [SerializeField] TextMeshProUGUI ammoText;
     [SerializeField] GameObject outOfAmmoText;
+
+    private Vector2 aimDirection = Vector2.down;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         currentAmmo = maxAmmo;
-
         UpdateUI();
 
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         if (outOfAmmoText != null)
-        {
             outOfAmmoText.SetActive(false);
-        }
     }
 
-    void Update()
+    void LateUpdate()
     {
         FollowPlayer();
-        UpdateAnimation();
+        ReadDirection();
+        ApplyDirection();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -59,28 +60,57 @@ public class Gun : MonoBehaviour
         transform.position = playerTransform.position + offset;
     }
 
-    void UpdateAnimation()
+    void ReadDirection()
     {
-        if (gunAnimator == null || playerMovement == null) return;
-
         Vector2 dir = playerMovement.lastMoveDir;
 
         if (dir == Vector2.zero)
             dir = Vector2.down;
 
-        gunAnimator.SetFloat("moveX", dir.x);
-        gunAnimator.SetFloat("moveY", dir.y);
+        aimDirection = dir;
+    }
+
+    void ApplyDirection()
+    {
+        if (spriteRenderer == null) return;
+
+        // RESET FIRST
+        spriteRenderer.flipX = false;
+        spriteRenderer.flipY = false;
+
+        // RIGHT = 90
+        if (aimDirection == Vector2.right)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+
+        // LEFT = 90 + mirror horizontally
+        else if (aimDirection == Vector2.left)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 270);
+            spriteRenderer.flipX = true;
+        }
+
+        // UP = 180
+        else if (aimDirection == Vector2.up)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 180);
+        }
+
+        // DOWN = 0 + FLIP VERTICALLY (YOUR REQUEST)
+        else if (aimDirection == Vector2.down)
+        {
+            transform.rotation = Quaternion.Euler(180, 0, 0);
+            spriteRenderer.flipY = true;
+        }
     }
 
     void Shoot()
     {
-        // No ammo
         if (currentAmmo <= 0)
         {
             if (outOfAmmoText != null)
-            {
                 outOfAmmoText.SetActive(true);
-            }
 
             return;
         }
@@ -92,50 +122,34 @@ public class Gun : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         if (rb == null) return;
 
-        Vector2 direction = playerMovement.lastMoveDir;
-
-        if (direction == Vector2.zero)
-            direction = Vector2.down;
-
-        rb.linearVelocity = direction.normalized * shootForce;
+        rb.linearVelocity = aimDirection * shootForce;
 
         Bullet b = bullet.GetComponent<Bullet>();
-
         if (b != null)
         {
             b.damage = damage;
+            b.SetDirection(aimDirection);
         }
 
-        // Reduce ammo
         currentAmmo--;
-
         UpdateUI();
     }
 
     void UpdateUI()
     {
-        // Update ammo number
         if (ammoText != null)
-        {
             ammoText.text = currentAmmo.ToString();
-        }
 
-        // Show/hide out of ammo message
         if (outOfAmmoText != null)
-        {
             outOfAmmoText.SetActive(currentAmmo <= 0);
-        }
     }
 
-    // Optional function for ammo pickups later
     public void AddAmmo(int amount)
     {
         currentAmmo += amount;
 
         if (currentAmmo > maxAmmo)
-        {
             currentAmmo = maxAmmo;
-        }
 
         UpdateUI();
     }
