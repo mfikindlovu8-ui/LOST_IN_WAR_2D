@@ -39,6 +39,16 @@ public class Gun : MonoBehaviour
 
         if (outOfAmmoText != null)
             outOfAmmoText.SetActive(false);
+
+        // 🔥 Safety checks (important for debugging)
+        if (playerMovement == null)
+            Debug.LogWarning("Gun: PlayerMovement is NOT assigned in Inspector!");
+
+        if (playerTransform == null)
+            Debug.LogWarning("Gun: PlayerTransform is NOT assigned in Inspector!");
+
+        if (firePoint == null)
+            Debug.LogWarning("Gun: FirePoint is NOT assigned in Inspector!");
     }
 
     void LateUpdate()
@@ -62,42 +72,40 @@ public class Gun : MonoBehaviour
 
     void ReadDirection()
     {
+        if (playerMovement == null)
+        {
+            aimDirection = Vector2.down;
+            return;
+        }
+
         Vector2 dir = playerMovement.lastMoveDir;
 
         if (dir == Vector2.zero)
             dir = Vector2.down;
 
-        aimDirection = dir;
+        aimDirection = dir.normalized;
     }
 
     void ApplyDirection()
     {
         if (spriteRenderer == null) return;
 
-        // RESET FIRST
         spriteRenderer.flipX = false;
         spriteRenderer.flipY = false;
 
-        // RIGHT = 90
         if (aimDirection == Vector2.right)
         {
             transform.rotation = Quaternion.Euler(0, 0, 90);
         }
-
-        // LEFT = 90 + mirror horizontally
         else if (aimDirection == Vector2.left)
         {
             transform.rotation = Quaternion.Euler(0, 0, 270);
             spriteRenderer.flipX = true;
         }
-
-        // UP = 180
         else if (aimDirection == Vector2.up)
         {
             transform.rotation = Quaternion.Euler(0, 0, 180);
         }
-
-        // DOWN = 0 + FLIP VERTICALLY (YOUR REQUEST)
         else if (aimDirection == Vector2.down)
         {
             transform.rotation = Quaternion.Euler(180, 0, 0);
@@ -115,12 +123,17 @@ public class Gun : MonoBehaviour
             return;
         }
 
-        if (bulletPrefab == null || firePoint == null) return;
+        if (bulletPrefab == null || firePoint == null)
+            return;
 
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        if (rb == null) return;
+        if (rb == null)
+        {
+            Debug.LogWarning("Bullet has no Rigidbody2D!");
+            return;
+        }
 
         rb.linearVelocity = aimDirection * shootForce;
 
