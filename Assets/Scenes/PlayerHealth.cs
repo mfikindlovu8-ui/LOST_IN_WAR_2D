@@ -18,23 +18,22 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
+        // Read real health data
         health = playerHealth.health;
         maxHealth = playerHealth.maxHealth;
 
+        // Update UI hearts
         for (int i = 0; i < hearts.Length; i++)
         {
+            hearts[i].enabled = (i < health);
+
             if (i < health)
             {
-                hearts[i].enabled = true;
                 hearts[i].texture = fullHeart;
-            }
-            else
-            {
-                hearts[i].enabled = false;
             }
         }
 
-        // Check death
+        // Death check
         if (!isDead && health <= 0)
         {
             Die();
@@ -44,12 +43,7 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         isDead = true;
-
-        // Optional: stop player movement visually
         Time.timeScale = 1f;
-
         SceneManager.LoadScene(gameOverSceneName);
     }
- 
 }
-

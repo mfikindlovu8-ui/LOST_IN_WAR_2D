@@ -36,10 +36,18 @@ public class Bullet : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+
+                AIChase ai = collision.gameObject.GetComponent<AIChase>();
+
+                if (ai != null)
+                {
+                    ai.ApplyKnockback(transform.position);
+                }
             }
+
+            // DESTROY BULLET ONLY
+            Destroy(gameObject);
         }
 
-        // DESTROY BULLET ONLY
-        Destroy(gameObject);
     }
 }

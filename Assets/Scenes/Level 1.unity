@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 4240589}
   - component: {fileID: 4240588}
   - component: {fileID: 4240587}
-  - component: {fileID: 4240586}
   - component: {fileID: 4240585}
   - component: {fileID: 4240584}
   - component: {fileID: 4240583}
@@ -188,7 +187,7 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 3
   rb: {fileID: 4240583}
-  knockbackForce: 2
+  knockbackForce: 0.5
   player: {fileID: 1788939954}
   spriteRenderer: {fileID: 4240589}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -219,21 +218,6 @@ MonoBehaviour:
   playerLayers:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &4240586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4240582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2633cfc8461fb64d8c4a075076fea93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EPatrol
-  pointA: {fileID: 964506246}
-  pointB: {fileID: 1562866402}
-  speed: 0.75
 --- !u!114 &4240587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,8 +232,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
   patrolSpeed: 0.9
-  chaseSpeed: 0.9
+  chaseSpeed: 1.5
   detectionRange: 6
+  knockbackForce: 0.5
+  knockbackDuration: 0.2
   pointA: {fileID: 964506247}
   pointB: {fileID: 1562866403}
 --- !u!61 &4240588
@@ -526,8 +512,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
   patrolSpeed: 1.25
-  chaseSpeed: 1.25
+  chaseSpeed: 1.75
   detectionRange: 3
+  knockbackForce: 0.25
+  knockbackDuration: 0.2
   pointA: {fileID: 1689002831}
   pointB: {fileID: 1488459980}
 --- !u!50 &22507433
@@ -575,7 +563,7 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 15
   rb: {fileID: 22507433}
-  knockbackForce: 5
+  knockbackForce: 0.5
   player: {fileID: 1788939954}
   spriteRenderer: {fileID: 22507437}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -1005,7 +993,6 @@ GameObject:
   - component: {fileID: 106186887}
   - component: {fileID: 106186886}
   - component: {fileID: 106186885}
-  - component: {fileID: 106186884}
   - component: {fileID: 106186883}
   - component: {fileID: 106186882}
   - component: {fileID: 106186881}
@@ -1092,21 +1079,6 @@ MonoBehaviour:
   playerLayers:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &106186884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106186880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2633cfc8461fb64d8c4a075076fea93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EPatrol
-  pointA: {fileID: 1515488103}
-  pointB: {fileID: 877286913}
-  speed: 0.75
 --- !u!114 &106186885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,8 +1093,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
   patrolSpeed: 0.9
-  chaseSpeed: 0.9
+  chaseSpeed: 1.5
   detectionRange: 6
+  knockbackForce: 0.5
+  knockbackDuration: 0.2
   pointA: {fileID: 1515488104}
   pointB: {fileID: 877286914}
 --- !u!61 &106186886
@@ -1430,7 +1404,6 @@ GameObject:
   - component: {fileID: 178233773}
   - component: {fileID: 178233772}
   - component: {fileID: 178233771}
-  - component: {fileID: 178233770}
   - component: {fileID: 178233769}
   - component: {fileID: 178233768}
   - component: {fileID: 178233767}
@@ -1487,7 +1460,7 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 3
   rb: {fileID: 178233767}
-  knockbackForce: 5
+  knockbackForce: 0.5
   player: {fileID: 1788939954}
   spriteRenderer: {fileID: 178233773}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -1518,21 +1491,6 @@ MonoBehaviour:
   playerLayers:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &178233770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178233766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2633cfc8461fb64d8c4a075076fea93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EPatrol
-  pointA: {fileID: 1638759360}
-  pointB: {fileID: 1227416563}
-  speed: 0.75
 --- !u!114 &178233771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1547,8 +1505,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
   patrolSpeed: 1
-  chaseSpeed: 1
+  chaseSpeed: 1.5
   detectionRange: 6
+  knockbackForce: 0.5
+  knockbackDuration: 0.2
   pointA: {fileID: 1638759361}
   pointB: {fileID: 1227416564}
 --- !u!61 &178233772
@@ -3650,7 +3610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff172cd87d1f14f45a2732371df00bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
-  ammoAmount: 3
+  ammoAmount: 5
   floatSpeed: 2
   floatHeight: 0.15
 --- !u!1 &702213523
@@ -3730,7 +3690,6 @@ GameObject:
   - component: {fileID: 725509971}
   - component: {fileID: 725509970}
   - component: {fileID: 725509969}
-  - component: {fileID: 725509968}
   - component: {fileID: 725509967}
   - component: {fileID: 725509966}
   - component: {fileID: 725509965}
@@ -3803,7 +3762,7 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 3
   rb: {fileID: 725509965}
-  knockbackForce: 5
+  knockbackForce: 0.5
   player: {fileID: 1788939954}
   spriteRenderer: {fileID: 725509971}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -3816,7 +3775,7 @@ MonoBehaviour:
   - {fileID: 1704114930}
   - {fileID: 161856707}
   healthUI: {fileID: 1783545060}
-  showDistance: 1
+  showDistance: 2
 --- !u!114 &725509967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3834,21 +3793,6 @@ MonoBehaviour:
   playerLayers:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &725509968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725509963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2633cfc8461fb64d8c4a075076fea93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EPatrol
-  pointA: {fileID: 1549496311}
-  pointB: {fileID: 1453489560}
-  speed: 0.75
 --- !u!114 &725509969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3865,6 +3809,8 @@ MonoBehaviour:
   patrolSpeed: 0.9
   chaseSpeed: 0.9
   detectionRange: 2
+  knockbackForce: 0.5
+  knockbackDuration: 0.2
   pointA: {fileID: 1549496312}
   pointB: {fileID: 1453489561}
 --- !u!61 &725509970
@@ -4195,7 +4141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff172cd87d1f14f45a2732371df00bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
-  ammoAmount: 3
+  ammoAmount: 5
   floatSpeed: 2
   floatHeight: 0.15
 --- !u!4 &742971873
@@ -4206,12 +4152,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742971869}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.34, y: -7.7, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.16, y: -8.67452, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 953726555}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778244025
 GameObject:
@@ -4821,7 +4767,6 @@ GameObject:
   - component: {fileID: 889547026}
   - component: {fileID: 889547025}
   - component: {fileID: 889547024}
-  - component: {fileID: 889547023}
   - component: {fileID: 889547022}
   - component: {fileID: 889547021}
   - component: {fileID: 889547020}
@@ -4878,7 +4823,7 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 4
   rb: {fileID: 889547020}
-  knockbackForce: 3
+  knockbackForce: 1
   player: {fileID: 1788939954}
   spriteRenderer: {fileID: 889547026}
   flashColor: {r: 1, g: 0.33647794, b: 0.33647794, a: 1}
@@ -4908,21 +4853,6 @@ MonoBehaviour:
   playerLayers:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &889547023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889547019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2633cfc8461fb64d8c4a075076fea93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EPatrol
-  pointA: {fileID: 1961314257}
-  pointB: {fileID: 401414302}
-  speed: 0.75
 --- !u!114 &889547024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4939,6 +4869,8 @@ MonoBehaviour:
   patrolSpeed: 0.9
   chaseSpeed: 0.9
   detectionRange: 5
+  knockbackForce: 0.5
+  knockbackDuration: 0.2
   pointA: {fileID: 1961314258}
   pointB: {fileID: 401414303}
 --- !u!61 &889547025
@@ -5425,6 +5357,7 @@ Transform:
   - {fileID: 685004452}
   - {fileID: 1119418649}
   - {fileID: 2006444971}
+  - {fileID: 742971873}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &964506246
@@ -5824,7 +5757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff172cd87d1f14f45a2732371df00bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
-  ammoAmount: 3
+  ammoAmount: 5
   floatSpeed: 2
   floatHeight: 0.15
 --- !u!1 &1138151033
@@ -7113,7 +7046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff172cd87d1f14f45a2732371df00bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
-  ammoAmount: 3
+  ammoAmount: 5
   floatSpeed: 2
   floatHeight: 0.15
 --- !u!4 &1613704076
@@ -16086,7 +16019,6 @@ GameObject:
   - component: {fileID: 1881374547}
   - component: {fileID: 1881374546}
   - component: {fileID: 1881374545}
-  - component: {fileID: 1881374544}
   - component: {fileID: 1881374543}
   - component: {fileID: 1881374542}
   - component: {fileID: 1881374541}
@@ -16143,7 +16075,7 @@ MonoBehaviour:
   minDrop: 1
   maxDrop: 3
   rb: {fileID: 1881374541}
-  knockbackForce: 5
+  knockbackForce: 0.5
   player: {fileID: 1788939954}
   spriteRenderer: {fileID: 1881374547}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -16174,21 +16106,6 @@ MonoBehaviour:
   playerLayers:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &1881374544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881374540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2633cfc8461fb64d8c4a075076fea93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EPatrol
-  pointA: {fileID: 1867050154}
-  pointB: {fileID: 1546385009}
-  speed: 0.75
 --- !u!114 &1881374545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16203,8 +16120,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AIChase
   player: {fileID: 1788939945}
   patrolSpeed: 0.95
-  chaseSpeed: 0.95
+  chaseSpeed: 1.5
   detectionRange: 6
+  knockbackForce: 1
+  knockbackDuration: 0.2
   pointA: {fileID: 1867050155}
   pointB: {fileID: 1546385010}
 --- !u!61 &1881374546
@@ -16597,7 +16516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff172cd87d1f14f45a2732371df00bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoPickup
-  ammoAmount: 3
+  ammoAmount: 5
   floatSpeed: 2
   floatHeight: 0.15
 --- !u!1 &2012803765
@@ -17506,6 +17425,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144545879}
   m_CullTransparentMesh: 1
+--- !u!1001 &1920330246360541292
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215721350638131055, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_Name
+      value: Heart Pickups
+      objectReference: {fileID: 0}
+    - target: {fileID: 5307406245534268456, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -17522,4 +17502,4 @@ SceneRoots:
   - {fileID: 1689002831}
   - {fileID: 1488459980}
   - {fileID: 953726555}
-  - {fileID: 742971873}
+  - {fileID: 1920330246360541292}
