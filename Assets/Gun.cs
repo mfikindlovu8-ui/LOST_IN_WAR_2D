@@ -1,94 +1,169 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
-[Header("Stats")]
-[SerializeField] int damage = 1;
-[SerializeField] float shootForce = 10f;
+    [Header("Stats")]
+    [SerializeField] int damage = 1;
+    [SerializeField] float shootForce = 10f;
 
-[Header("Audio")]
-AudioSource audioSource;
-AudioClip gunshotSound;
+    [Header("Ammo")]
+    [SerializeField] int maxAmmo = 12;
+    int currentAmmo;
 
-[Header("References")]
-[SerializeField] GameObject bulletPrefab;
-[SerializeField] Transform firePoint;
-[SerializeField] Animator gunAnimator;
+    [Header("References")]
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform firePoint;
 
-[Header("Player Reference")]
-[SerializeField] Movement playerMovement;
-[SerializeField] Transform playerTransform;
+    [Header("Player Reference")]
+    [SerializeField] Movement playerMovement;
+    [SerializeField] Transform playerTransform;
 
-[Header("Follow Settings")]
-[SerializeField] Vector3 offset;
+    [Header("Follow Settings")]
+    [SerializeField] Vector3 offset;
 
-void Start()
-{
-// Get AudioSource component
-audioSource = GetComponent<AudioSource>();
+    [Header("UI")]
+    [SerializeField] TextMeshProUGUI ammoText;
+    [SerializeField] GameObject outOfAmmoText;
 
-// Load audio file named "Big Gunshot Audio"
-gunshotSound = Resources.Load<AudioClip>("Big Gunshot Audio");
+    private Vector2 aimDirection = Vector2.down;
+    private SpriteRenderer spriteRenderer;
 
-}
+    void Start()
+    {
+        currentAmmo = maxAmmo;
+        UpdateUI();
 
-void Update()
-{
-FollowPlayer();
-UpdateAnimation();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
-if (Input.GetKeyDown(KeyCode.Space))
-{
-Shoot();
-}
-}
+        if (outOfAmmoText != null)
+            outOfAmmoText.SetActive(false);
 
-void FollowPlayer()
-{
-if (playerTransform == null) return;
+        // 🔥 Safety checks (important for debugging)
+        if (playerMovement == null)
+            Debug.LogWarning("Gun: PlayerMovement is NOT assigned in Inspector!");
 
-transform.position = playerTransform.position + offset;
-}
+        if (playerTransform == null)
+            Debug.LogWarning("Gun: PlayerTransform is NOT assigned in Inspector!");
 
-void UpdateAnimation()
-{
-if (gunAnimator == null || playerMovement == null) return;
+        if (firePoint == null)
+            Debug.LogWarning("Gun: FirePoint is NOT assigned in Inspector!");
+    }
 
-Vector2 dir = playerMovement.lastMoveDir;
+    void LateUpdate()
+    {
+        FollowPlayer();
+        ReadDirection();
+        ApplyDirection();
 
-if (dir == Vector2.zero)
-dir = Vector2.down;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+    }
 
-gunAnimator.SetFloat("moveX", dir.x);
-gunAnimator.SetFloat("moveY", dir.y);
-}
+    void FollowPlayer()
+    {
+        if (playerTransform == null) return;
 
-void Shoot()
-{
-if (bulletPrefab == null || firePoint == null) return;
+        transform.position = playerTransform.position + offset;
+    }
 
-// PLAY GUN SOUND
-if (gunshotSound != null && audioSource != null)
-{
-audioSource.PlayOneShot(gunshotSound);
-}
+    void ReadDirection()
+    {
+        if (playerMovement == null)
+        {
+            aimDirection = Vector2.down;
+            return;
+        }
 
-GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        Vector2 dir = playerMovement.lastMoveDir;
 
-Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-if (rb == null) return;
+        if (dir == Vector2.zero)
+            dir = Vector2.down;
 
-Vector2 direction = playerMovement.lastMoveDir;
+        aimDirection = dir.normalized;
+    }
 
-if (direction == Vector2.zero)
-direction = Vector2.down;
+    void ApplyDirection()
+    {
+        if (spriteRenderer == null) return;
 
-rb.linearVelocity = direction.normalized * shootForce;
+        spriteRenderer.flipX = false;
+        spriteRenderer.flipY = false;
 
-Bullet b = bullet.GetComponent<Bullet>();
-if (b != null)
-{
-b.damage = damage;
-}
-}
+        if (aimDirection == Vector2.right)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+        else if (aimDirection == Vector2.left)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 270);
+            spriteRenderer.flipX = true;
+        }
+        else if (aimDirection == Vector2.up)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 180);
+        }
+        else if (aimDirection == Vector2.down)
+        {
+            transform.rotation = Quaternion.Euler(180, 0, 0);
+            spriteRenderer.flipY = true;
+        }
+    }
+
+    void Shoot()
+    {
+        if (currentAmmo <= 0)
+        {
+            if (outOfAmmoText != null)
+                outOfAmmoText.SetActive(true);
+
+            return;
+        }
+
+        if (bulletPrefab == null || firePoint == null)
+            return;
+
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.LogWarning("Bullet has no Rigidbody2D!");
+            return;
+        }
+
+        rb.linearVelocity = aimDirection * shootForce;
+
+        Bullet b = bullet.GetComponent<Bullet>();
+        if (b != null)
+        {
+            b.damage = damage;
+            b.SetDirection(aimDirection);
+        }
+
+        currentAmmo--;
+        UpdateUI();
+    }
+
+    void UpdateUI()
+    {
+        if (ammoText != null)
+            ammoText.text = currentAmmo.ToString();
+
+        if (outOfAmmoText != null)
+            outOfAmmoText.SetActive(currentAmmo <= 0);
+    }
+
+    public void AddAmmo(int amount)
+    {
+        currentAmmo += amount;
+
+        if (currentAmmo > maxAmmo)
+            currentAmmo = maxAmmo;
+
+        UpdateUI();
+    }
 }

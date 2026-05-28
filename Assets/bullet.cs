@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -11,9 +10,25 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void SetDirection(Vector2 direction)
     {
+        direction = direction.normalized;
 
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // IGNORE PLAYER + GUN
+        if (collision.gameObject.CompareTag("Player"))
+            return;
+
+        if (collision.gameObject.CompareTag("Gun"))
+            return;
+
+        // DAMAGE ENEMY
         if (collision.gameObject.CompareTag("Enemy"))
         {
             EnemyHealth enemy = collision.gameObject.GetComponentInParent<EnemyHealth>();
@@ -22,12 +37,17 @@ public class Bullet : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
 
+                AIChase ai = collision.gameObject.GetComponent<AIChase>();
 
+                if (ai != null)
+                {
+                    ai.ApplyKnockback(transform.position);
+                }
             }
 
+            // DESTROY BULLET ONLY
             Destroy(gameObject);
         }
+
     }
-
-
 }
