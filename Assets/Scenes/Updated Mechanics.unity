@@ -234,7 +234,7 @@ MonoBehaviour:
   patrolSpeed: 0.9
   chaseSpeed: 1.5
   detectionRange: 6
-  knockbackForce: 0.5
+  knockbackForce: 0.2
   knockbackDuration: 0.2
   pointA: {fileID: 964506247}
   pointB: {fileID: 1562866403}
@@ -514,7 +514,7 @@ MonoBehaviour:
   patrolSpeed: 1.25
   chaseSpeed: 1.75
   detectionRange: 3
-  knockbackForce: 0.25
+  knockbackForce: 0.1
   knockbackDuration: 0.2
   pointA: {fileID: 1689002831}
   pointB: {fileID: 1488459980}
@@ -1094,8 +1094,8 @@ MonoBehaviour:
   player: {fileID: 1788939945}
   patrolSpeed: 0.9
   chaseSpeed: 1.5
-  detectionRange: 6
-  knockbackForce: 0.5
+  detectionRange: 2.5
+  knockbackForce: 0.2
   knockbackDuration: 0.2
   pointA: {fileID: 1515488104}
   pointB: {fileID: 877286914}
@@ -1507,7 +1507,7 @@ MonoBehaviour:
   patrolSpeed: 1
   chaseSpeed: 1.5
   detectionRange: 6
-  knockbackForce: 0.5
+  knockbackForce: 0.2
   knockbackDuration: 0.2
   pointA: {fileID: 1638759361}
   pointB: {fileID: 1227416564}
@@ -3809,7 +3809,7 @@ MonoBehaviour:
   patrolSpeed: 0.9
   chaseSpeed: 0.9
   detectionRange: 2
-  knockbackForce: 0.5
+  knockbackForce: 0.2
   knockbackDuration: 0.2
   pointA: {fileID: 1549496312}
   pointB: {fileID: 1453489561}
@@ -4869,7 +4869,7 @@ MonoBehaviour:
   patrolSpeed: 0.9
   chaseSpeed: 0.9
   detectionRange: 5
-  knockbackForce: 0.5
+  knockbackForce: 0.2
   knockbackDuration: 0.2
   pointA: {fileID: 1961314258}
   pointB: {fileID: 401414303}
@@ -16122,7 +16122,7 @@ MonoBehaviour:
   patrolSpeed: 0.95
   chaseSpeed: 1.5
   detectionRange: 6
-  knockbackForce: 1
+  knockbackForce: 0.2
   knockbackDuration: 0.2
   pointA: {fileID: 1867050155}
   pointB: {fileID: 1546385010}
@@ -17425,67 +17425,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144545879}
   m_CullTransparentMesh: 1
---- !u!1001 &1920330246360541292
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -11.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2436002373107689053, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4215721350638131055, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_Name
-      value: Heart Pickups
-      objectReference: {fileID: 0}
-    - target: {fileID: 5307406245534268456, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5f32b73b7c73a0540959fbbe0504533d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -17502,4 +17441,3 @@ SceneRoots:
   - {fileID: 1689002831}
   - {fileID: 1488459980}
   - {fileID: 953726555}
-  - {fileID: 1920330246360541292}
