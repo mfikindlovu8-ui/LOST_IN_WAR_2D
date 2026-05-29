@@ -43,5 +43,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background 0
+    uniqueID: 3310440915
+    locked: 0
+  - name: Moon glow 2
+    uniqueID: 1965065909
+    locked: 0
+  - name: UI 5
+    uniqueID: 566207609
+    locked: 0
   m_RenderingLayers:
   - Default
