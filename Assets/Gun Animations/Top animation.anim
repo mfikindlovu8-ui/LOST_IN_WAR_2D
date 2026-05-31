@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Back gun
+  m_Name: Top animation
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -3569330300953063641, guid: 41c63a5093af3434187a034643908cb4, type: 3}
+      value: {fileID: 3494032124930677345, guid: 0d3b0be2f0cbc0441891d2d74182fc55, type: 3}
     - time: 0.083333336
-      value: {fileID: -3569330300953063641, guid: 5a8f3d7dd5b56064d823b8ca4a4acf79, type: 3}
+      value: {fileID: 21300000, guid: ac700e0f454cd7141bb2ca548977434f, type: 2}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -3569330300953063641, guid: 41c63a5093af3434187a034643908cb4, type: 3}
-    - {fileID: -3569330300953063641, guid: 5a8f3d7dd5b56064d823b8ca4a4acf79, type: 3}
+    - {fileID: 3494032124930677345, guid: 0d3b0be2f0cbc0441891d2d74182fc55, type: 3}
+    - {fileID: 21300000, guid: ac700e0f454cd7141bb2ca548977434f, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

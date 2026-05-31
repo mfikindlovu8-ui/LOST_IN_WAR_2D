@@ -10,11 +10,12 @@ public class Movement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private Vector2 input;
+    private Vector2 moveDir;
     private bool isWalking;
 
     public Vector2 lastMoveDir = Vector2.down;
 
-    // ✅ REQUIRED FOR GUN
+    // For gun / external scripts
     public Vector2 currentInput;
 
     [Header("Combat")]
@@ -41,37 +42,35 @@ public class Movement : MonoBehaviour
 
     public void Move()
     {
+        // INPUT
         input = new Vector2(
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical")
         );
 
-        // ✅ STORE INPUT FOR GUN
         currentInput = input;
 
-        Vector3 move = new Vector3(input.x, input.y, 0f).normalized;
+        // NORMALIZE movement for consistent speed & animation
+        moveDir = input.normalized;
 
+        // store last valid direction
         if (input != Vector2.zero)
         {
-            lastMoveDir = input.normalized;
+            lastMoveDir = moveDir;
         }
 
-        transform.position += move * moveSpeed * Time.deltaTime;
+        // APPLY MOVEMENT
+        transform.position += (Vector3)moveDir * moveSpeed * Time.deltaTime;
 
         isWalking = input != Vector2.zero;
 
         animator.SetBool("isWalking", isWalking);
 
-        if (isWalking)
-        {
-            animator.SetFloat("MoveX", input.x);
-            animator.SetFloat("MoveY", input.y);
-        }
-        else
-        {
-            animator.SetFloat("MoveX", lastMoveDir.x);
-            animator.SetFloat("MoveY", lastMoveDir.y);
-        }
+        // 🔥 IMPORTANT PART FOR BLEND TREE
+        Vector2 animDir = isWalking ? moveDir : lastMoveDir;
+
+        animator.SetFloat("MoveX", animDir.x);
+        animator.SetFloat("MoveY", animDir.y);
     }
 
     public void attack()
