@@ -1,49 +1,24 @@
-using UnityEngine.Audio;
 using UnityEngine;
+
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
-    void Awake()
+    public SoundData[] sounds;
+
+    public void Play(string soundName)
     {
+        SoundData s = System.Array.Find(sounds, sound => sound.name == soundName);
 
-
-        foreach (Sound s in sounds)
+        if (s == null)
         {
-           s. source = s.gameObject.AddComponent<AudioSource>();
-           s.source.clip = s.clip;
-
-           s.source.volume =s.volume;
-           s.source.pitch =s.pitch;
-           s.source.loop = s.loop;
-
-
-           {
-
-
-           }
+            Debug.LogWarning("Sound not found: " + soundName);
+            return;
         }
+
+        s.source.Play();
     }
 
-
-void Start ()
-
+    private void ExampleUsage()
     {
-        Play(BigGunshot);
+        Play("BigGunshot");
     }
-    public void Play(string clipName)
-    {
-        Sound s = Array.Find(sounds, sound => sound.soundName == clipName);
-        if (s != null && s.source != null)
-        {
-
-        }
-        Debug.LogWarning("Sound: " + clipName + " not found!");
-        return;
-        {
-        }
-    }    
-    
-        
 }
