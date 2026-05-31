@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/level 2.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Prologue.unity
-    guid: eb772a1317f61644785199b4b327009a
-  - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 884cf7be4ed93f146bad84406e801ea7
+  - enabled: 1
+    path: Assets/Scenes/Prologue.unity
+    guid: eb772a1317f61644785199b4b327009a
   - enabled: 1
     path: Assets/Scenes/Environment.unity
     guid: 13650f5ad9353d14a8264d5a89ed464c
