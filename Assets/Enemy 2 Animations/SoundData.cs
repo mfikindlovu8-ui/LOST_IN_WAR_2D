@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class Sound : MonoBehaviour
+[System.Serializable]
+public class SoundData
 {
+    public string name;
     public AudioClip clip;
-    public string soundName;
 
     [Range(0f, 1f)]
     public float volume = 1f;
@@ -16,3 +17,11 @@ public class Sound : MonoBehaviour
     [HideInInspector]
     public AudioSource source;
 }
+
+
+
+
+
+
+
+
