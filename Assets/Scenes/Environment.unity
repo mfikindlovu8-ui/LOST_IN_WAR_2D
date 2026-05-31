@@ -1936,7 +1936,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1960,15 +1960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0add154752f599c40a66bddcb80675f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
-  dialogue:
-  - '"WAKE UP"!!'
-  - '"You know what we want" '
-  index: 0
-  contButton: {fileID: 0}
-  wordSpeed: 0.06
-  playerIsClose: 0
 --- !u!1 &218071752
 GameObject:
   m_ObjectHideFlags: 0
