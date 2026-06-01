@@ -1048,7 +1048,7 @@ MonoBehaviour:
   maxDrop: 3
   heartDropChance: 0.25
   rb: {fileID: 135302751}
-  knockbackForce: 0
+  knockbackForce: 1
   player: {fileID: 989779607}
   spriteRenderer: {fileID: 135302756}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -1357,7 +1357,7 @@ MonoBehaviour:
   patrolSpeed: 0.9
   chaseSpeed: 0.9
   detectionRange: 5
-  knockbackForce: 0.1
+  knockbackForce: 0.2
   knockbackDuration: 0.2
   pointA: {fileID: 1856668778}
   pointB: {fileID: 1475835955}
@@ -1886,7 +1886,7 @@ MonoBehaviour:
   patrolSpeed: 1.25
   chaseSpeed: 1.75
   detectionRange: 3
-  knockbackForce: 0
+  knockbackForce: 0.1
   knockbackDuration: 0.2
   pointA: {fileID: 460690227}
   pointB: {fileID: 2076920887}
@@ -1937,7 +1937,7 @@ MonoBehaviour:
   maxDrop: 15
   heartDropChance: 0.25
   rb: {fileID: 271854391}
-  knockbackForce: 0
+  knockbackForce: 0.5
   player: {fileID: 989779607}
   spriteRenderer: {fileID: 271854395}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -5644,7 +5644,7 @@ MonoBehaviour:
   maxDrop: 3
   heartDropChance: 0.25
   rb: {fileID: 715262661}
-  knockbackForce: 0
+  knockbackForce: 0.5
   player: {fileID: 989779607}
   spriteRenderer: {fileID: 715262666}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -5691,7 +5691,7 @@ MonoBehaviour:
   patrolSpeed: 0.9
   chaseSpeed: 1.5
   detectionRange: 6
-  knockbackForce: 0.1
+  knockbackForce: 0.2
   knockbackDuration: 0.2
   pointA: {fileID: 1772406426}
   pointB: {fileID: 1996332908}
@@ -5980,7 +5980,7 @@ MonoBehaviour:
   maxDrop: 3
   heartDropChance: 0.25
   rb: {fileID: 723391784}
-  knockbackForce: 0
+  knockbackForce: 0.5
   player: {fileID: 989779607}
   spriteRenderer: {fileID: 723391789}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -6027,7 +6027,7 @@ MonoBehaviour:
   patrolSpeed: 0.9
   chaseSpeed: 0.9
   detectionRange: 2
-  knockbackForce: 0.1
+  knockbackForce: 0.2
   knockbackDuration: 0.2
   pointA: {fileID: 1373329602}
   pointB: {fileID: 1682923821}
@@ -9119,7 +9119,7 @@ MonoBehaviour:
   maxDrop: 3
   heartDropChance: 0.25
   rb: {fileID: 1053805996}
-  knockbackForce: 0
+  knockbackForce: 0.5
   player: {fileID: 989779607}
   spriteRenderer: {fileID: 1053806001}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -9166,7 +9166,7 @@ MonoBehaviour:
   patrolSpeed: 1
   chaseSpeed: 1.5
   detectionRange: 6
-  knockbackForce: 0.1
+  knockbackForce: 0.2
   knockbackDuration: 0.2
   pointA: {fileID: 1130348437}
   pointB: {fileID: 1569553591}
@@ -11318,7 +11318,7 @@ MonoBehaviour:
   maxDrop: 3
   heartDropChance: 0.25
   rb: {fileID: 1472087044}
-  knockbackForce: 0
+  knockbackForce: 0.5
   player: {fileID: 989779607}
   spriteRenderer: {fileID: 1472087049}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
@@ -11365,7 +11365,7 @@ MonoBehaviour:
   patrolSpeed: 0.95
   chaseSpeed: 1.5
   detectionRange: 6
-  knockbackForce: 0.1
+  knockbackForce: 0.2
   knockbackDuration: 0.2
   pointA: {fileID: 1143573616}
   pointB: {fileID: 1809688465}
