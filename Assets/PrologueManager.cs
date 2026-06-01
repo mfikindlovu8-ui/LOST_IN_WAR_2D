@@ -15,8 +15,8 @@ public class PrologueManager : MonoBehaviour
     public float typingSpeed = 0.04f;
 
     [Header("Scene Transition")]
-    // This matches your main gameplay scene name exactly
-    public string nextSceneName = "Environment";
+    // Changed this to target your "Level 1" scene exactly
+    public string nextSceneName = "Level 1";
 
     private int index;
     private bool isTyping;
@@ -24,7 +24,8 @@ public class PrologueManager : MonoBehaviour
     void Start()
     {
         dialogueText.text = string.Empty;
-        startGameButton.SetActive(false);
+        // REMOVED: startGameButton.SetActive(false); 
+        // The button will now stay ticked and visible in your scene!
         StartDialogue();
     }
 
@@ -82,7 +83,7 @@ public class PrologueManager : MonoBehaviour
 
     void EndPrologue()
     {
-        Debug.Log("Dialogue finished! Showing the Start Game button.");
+        Debug.Log("Dialogue finished! The Start Game button is already visible.");
         startGameButton.SetActive(true);
     }
 
@@ -93,5 +94,4 @@ public class PrologueManager : MonoBehaviour
         SceneManager.LoadScene(nextSceneName);
     }
 }
-
 

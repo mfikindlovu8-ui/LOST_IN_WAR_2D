@@ -1700,15 +1700,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1537625275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d36625d77f6bd449ff3fbbd399d9d0, type: 3}
+  m_Script: {fileID: 11500000, guid: fe44bdeaaaf69ae4ba89538f83fe4b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrologueManager
   dialogueText: {fileID: 16440122}
   startGameButton: {fileID: 1496799605}
   lines:
   - Start Game
-  typingSpeed: 0.05
-  nextSceneName: Environment
+  typingSpeed: 0.04
+  nextSceneName: Level 1
 --- !u!1 &1783201265
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,7 +2044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2085880454
 RectTransform:
   m_ObjectHideFlags: 0
