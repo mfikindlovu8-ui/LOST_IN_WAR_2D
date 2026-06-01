@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/GAME SCENES/Level 1.unity
     guid: 75c74c34aaf9c9b48913d9d24a8a4909
   - enabled: 1
-    path: Assets/GAME SCENES/Updated Mechanics.unity
+    path: Assets/Scenes/Environment.unity
     guid: 13650f5ad9353d14a8264d5a89ed464c
   - enabled: 0
     path: Assets/Scenes/Envionment 1.unity
