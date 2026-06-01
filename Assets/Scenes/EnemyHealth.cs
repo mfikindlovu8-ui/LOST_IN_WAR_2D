@@ -13,8 +13,10 @@ public class EnemyHealth : MonoBehaviour
 
     [Header("Loot Drop")]
     [SerializeField] private GameObject bulletPickup;
+    [SerializeField] private GameObject heartPickup;
     [SerializeField] private int minDrop = 1;
     [SerializeField] private int maxDrop = 3;
+    [SerializeField][Range(0f, 1f)] private float heartDropChance = 0.25f;
 
     [Header("Knockback")]
     [SerializeField] private Rigidbody2D rb;
@@ -97,14 +99,31 @@ public class EnemyHealth : MonoBehaviour
 
     void DropLoot()
     {
-        if (bulletPickup == null) return;
-
-        int amount = Random.Range(minDrop, maxDrop + 1);
-
-        for (int i = 0; i < amount; i++)
+        // Drop bullets
+        if (bulletPickup != null)
         {
-            Vector3 offset = new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f), 0);
-            Instantiate(bulletPickup, transform.position + offset, Quaternion.identity);
+            int amount = Random.Range(minDrop, maxDrop + 1);
+
+            for (int i = 0; i < amount; i++)
+            {
+                Vector3 offset = new Vector3(
+                    Random.Range(-0.3f, 0.3f),
+                    Random.Range(-0.3f, 0.3f),
+                    0);
+
+                Instantiate(bulletPickup, transform.position + offset, Quaternion.identity);
+            }
+        }
+
+        // Chance to drop a heart
+        if (heartPickup != null && Random.value <= heartDropChance)
+        {
+            Vector3 heartOffset = new Vector3(
+                Random.Range(-0.3f, 0.3f),
+                Random.Range(-0.3f, 0.3f),
+                0);
+
+            Instantiate(heartPickup, transform.position + heartOffset, Quaternion.identity);
         }
     }
 
