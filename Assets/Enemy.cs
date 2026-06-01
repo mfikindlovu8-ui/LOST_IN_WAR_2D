@@ -17,26 +17,32 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        dialoguePanel.SetActive(false);
-        contButton.SetActive(false);
+        if (dialoguePanel) dialoguePanel.SetActive(false);
+        if (contButton) contButton.SetActive(false);
     }
 
     IEnumerator Typing()
     {
+        if (!dialogueText || dialogue.Length == 0) yield break;
+
         dialogueText.text = "";
 
         foreach (char letter in dialogue[index])
         {
+            if (!dialogueText) yield break;
+
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
         }
 
-        contButton.SetActive(true);
+        if (contButton)
+            contButton.SetActive(true);
     }
 
     public void NextLine()
     {
-        contButton.SetActive(false);
+        if (contButton)
+            contButton.SetActive(false);
 
         if (index < dialogue.Length - 1)
         {
@@ -53,12 +59,17 @@ public class Enemy : MonoBehaviour
     {
         StopAllCoroutines();
 
-        dialogueText.text = "";
+        if (dialogueText)
+            dialogueText.text = "";
+
         index = 0;
         dialogueStarted = false;
 
-        dialoguePanel.SetActive(false);
-        contButton.SetActive(false);
+        if (dialoguePanel)
+            dialoguePanel.SetActive(false);
+
+        if (contButton)
+            contButton.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -67,7 +78,9 @@ public class Enemy : MonoBehaviour
         {
             dialogueStarted = true;
 
-            dialoguePanel.SetActive(true);
+            if (dialoguePanel)
+                dialoguePanel.SetActive(true);
+
             StartCoroutine(Typing());
         }
     }

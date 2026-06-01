@@ -1395,7 +1395,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: -0.101029515, y: 0.48817754}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1405,7 +1405,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.84, y: 6.82}
+  m_Size: {x: 5.3698406, y: 7.839955}
   m_EdgeRadius: 0
 --- !u!212 &154061937
 SpriteRenderer:
@@ -6026,7 +6026,7 @@ MonoBehaviour:
   player: {fileID: 989779606}
   patrolSpeed: 0.9
   chaseSpeed: 0.9
-  detectionRange: 2
+  detectionRange: 2.5
   knockbackForce: 0.1
   knockbackDuration: 0.2
   pointA: {fileID: 1373329602}
@@ -6770,7 +6770,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -761, y: 405}
-  m_SizeDelta: {x: 104, y: 100}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &798031775
 MonoBehaviour:
@@ -13672,7 +13672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gun
   damage: 1
   shootForce: 100
-  maxAmmo: 15
+  maxAmmo: 10
   bulletPrefab: {fileID: 7524698015754571042, guid: c0a7c06d8f1e6c647b3df887824ec992, type: 3}
   firePoint: {fileID: 1637109130}
   audioSource: {fileID: 1724746601}
@@ -23460,10 +23460,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1352132415}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.9657038}
-  m_AnchoredPosition: {x: -650.99994, y: 423.5}
-  m_SizeDelta: {x: -1822, y: -943}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -650.99994, y: 405}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2004175277
 MonoBehaviour:
@@ -23641,7 +23641,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Find a way to Escape or Die
+  m_text: Find a way to Escape or Die...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
