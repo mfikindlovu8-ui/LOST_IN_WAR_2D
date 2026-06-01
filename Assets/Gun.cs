@@ -16,6 +16,13 @@ public class Gun : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform firePoint;
 
+    [Header("Audio")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip shootSound;
+
+    [Header("Animation")]
+    [SerializeField] Animator animator;
+
     [Header("Player Reference")]
     [SerializeField] Movement playerMovement;
     [SerializeField] Transform playerTransform;
@@ -28,19 +35,15 @@ public class Gun : MonoBehaviour
     [SerializeField] GameObject outOfAmmoText;
 
     private Vector2 aimDirection = Vector2.down;
-    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         currentAmmo = maxAmmo;
         UpdateUI();
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
         if (outOfAmmoText != null)
             outOfAmmoText.SetActive(false);
 
-        // 🔥 Safety checks (important for debugging)
         if (playerMovement == null)
             Debug.LogWarning("Gun: PlayerMovement is NOT assigned in Inspector!");
 
@@ -49,6 +52,15 @@ public class Gun : MonoBehaviour
 
         if (firePoint == null)
             Debug.LogWarning("Gun: FirePoint is NOT assigned in Inspector!");
+
+        if (audioSource == null)
+            Debug.LogWarning("Gun: AudioSource is NOT assigned in Inspector!");
+
+        if (shootSound == null)
+            Debug.LogWarning("Gun: ShootSound is NOT assigned in Inspector!");
+
+        if (animator == null)
+            Debug.LogWarning("Gun: Animator is NOT assigned in Inspector!");
     }
 
     void LateUpdate()
@@ -88,29 +100,13 @@ public class Gun : MonoBehaviour
 
     void ApplyDirection()
     {
-        if (spriteRenderer == null) return;
+        if (animator == null) return;
 
-        spriteRenderer.flipX = false;
-        spriteRenderer.flipY = false;
+        // These names must match your Blend Tree parameters
+        animator.SetFloat("MoveY", aimDirection.y);
+        animator.SetFloat("MoveX", aimDirection.x);
 
-        if (aimDirection == Vector2.right)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 90);
-        }
-        else if (aimDirection == Vector2.left)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 270);
-            spriteRenderer.flipX = true;
-        }
-        else if (aimDirection == Vector2.up)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 180);
-        }
-        else if (aimDirection == Vector2.down)
-        {
-            transform.rotation = Quaternion.Euler(180, 0, 0);
-            spriteRenderer.flipY = true;
-        }
+      
     }
 
     void Shoot()
@@ -126,7 +122,16 @@ public class Gun : MonoBehaviour
         if (bulletPrefab == null || firePoint == null)
             return;
 
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(
+            bulletPrefab,
+            firePoint.position,
+            Quaternion.identity
+        );
+
+        if (audioSource != null && shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
+        }
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         if (rb == null)
